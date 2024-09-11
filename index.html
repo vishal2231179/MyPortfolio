@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI/UX Designer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="shortcut icon" id="favicon" href="./fav.png" type="image/x-icon">
+    <style>
+
+
+        .arrow-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .fa-solid.fa-arrow-left-long {
+            font-size: 14px;
+            margin-right: 10px;
+            color: #babab5;
+            animation: bounceLeft 1s infinite;
+        }
+
+        .arrow-container {
+            display: flex;
+            align-items: center;
+        }
+
+
+
+        .learn-more-btn {
+
+            transition: background-color 0.3s ease;
+        }
+
+        .click-btn:hover {
+            background-color: #0056b3;
+        }
+
+        @keyframes bounceLeft {
+
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+
+            50% {
+                transform: translateX(-10px);
+            }
+        }
+
+        /* Hide arrow when this class is added */
+        .hide {
+            display: none;
+        }
+
+        @media screen and (max-width: 772px) {
+            .fa-solid.fa-arrow-left-long {
+                display: none;
+            }
+        }
+
+        
+        #scrollIcon {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            cursor: pointer;
+        }
+        
+        #scrollIcon i {
+            font-size: 24px;
+            transition: opacity 0.3s ease;
+            display: none; /* Initially hide both icons */
+        }
+        
+        #scrollIcon i.active {
+            display: inline-block; /* Show the active icon */
+        }
+        
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h2 class="vishu-logo">vishu</h2>
+            <div class="buttons">
+                <a href="https://www.linkedin.com/in/vishalprj" target="_blank"
+                    class="linkedin-btn">LinkedIn</a>
+                <a href="mailto:thevishuarijitian@gmail.com" target="_blank" class="email-btn">Email</a>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="profile-section">
+            <div class="profile-image">
+                <div class="avatar-circle">
+                    <img src="./GIF.gif" oncontextmenu="return false;" style="pointer-events: none;"
+                        alt="Profile Image">
+                </div>
+                <br>
+                
+                <span class="hero-heading1">UI/UX</span> <br>
+                <span class="hero-heading2">Designer</span>
+
+            </div>
+            <div class="profile-content">
+                <br>
+                <h1>Hi, I'm Vishal . . .</h1>
+                <br>
+                <p>Hello! I'm Vishal Prajapati, a passionate UI/UX designer with a flair for creating stunning and
+                    user-centric
+                    digital experiences. With a keen eye for detail and a knack for understanding user behavior, I bring
+                    ideas to life through captivating designs that bridge the gap between aesthetics and functionality.
+                </p>
+                <div class="profile-buttons">
+                    <button href="#" class="get-connect-btn" onclick="hideArrow()" popovertarget="get-more-btn">Let's Connect</button>
+                    
+                        <button class="learn-more-btn" onclick="hideArrow()" popovertarget="learn-more-btn">About
+                            me</button>
+                        <div class="arrow-container">
+                            <i class="fa-solid fa-arrow-left-long" id="leftArrow"></i>
+                        </div>
+
+                </div>
+
+
+               
+            </div>
+        </div>
+        </div>
+    </main>
+    <br><br><br><br><br>
+
+ <!-- popover section -->
+ <section class="about-section-pop" id="learn-more-btn" popover>
+    <div class="container-pop">
+        <div class="scroll-frame">
+            <div class="about-content-pop">
+                <h2>About Vishal Prajapati</h2>
+                <p>I am a passionate BCA student, aspiring to make a positive impact through my
+                    technical skills and creativity. With a solid foundation in web development,
+                    including HTML, CSS, and JavaScript, I have honed my expertise through
+                    certifications and participation in various competitions.</p>
+                <p>My technical toolkit also includes Tailwind CSS, Figma for web design, and Adobe
+                    Photoshop, enabling me to create visually appealing and functional designs.</p>
+                <p>I am constantly seeking opportunities to grow and innovate, blending my technical
+                    knowledge with strong soft skills like communication, collaboration, and
+                    adaptability. Beyond academics, I am actively involved in co-curricular activities,
+                    including coding competitions, UX/UI design, and photography.</p>
+                <p>When I'm not coding or designing, you can find me drawing, singing, or exploring new
+                    ways to express my creativity.</p>
+                <p>Explore my projects, certifications, and more to see how I turn ideas into reality.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+<!-- popover let's connect section -->
+ <section class="center-conatainer">
+
+     <div class="contact-form" id="get-more-btn" popover>
+         <span class="heading" style="color: rgb(255, 204, 0);">Let's Connect</span>
+         <!-- <form action="https://formsubmit.co/thevishuarijitian@gmail.com" method="POST">
+
+
+             <label for="name">Name:</label>
+             <input type="text" id="name" name="name" placeholder="Your Name" required>
+             <label for="email">Email:</label>
+             <input type="email" id="email" placeholder="Your E-mail" name="email" required>
+             <label for="subject">Subject</label>
+             <input type="text" id="subject" name="subject" placeholder="Subject" required>
+             <label for="message">Message:</label>
+             <textarea id="message" name="message" placeholder="Write Message..." required></textarea>
+             <input type="hidden" name="_cc" value="thevishuarijitian@gmail.com" required>
+             <input type="hidden" name="_captcha" value="false">
+             <input type="hidden" name="_template" value="table">
+             <button type="submit">Submit</button>
+            
+            </form> -->
+
+
+
+            <form action="https://formcarry.com/s/1WZXuiIc74v" method="POST">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Your Name" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" placeholder="Your E-mail" name="email" required>
+                
+                <label for="subject">Subject:</label>
+                <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" placeholder="Write Message..." required></textarea>
+                
+           
+                <button type="submit">Submit</button>
+            </form>
+            
+        </div>
+    </section>
+
+
+
+
+    <!-- skills -->
+    <section>
+        <h1 style="text-align: center; font-size: 45px; font-weight: bold;">Skills</h1>
+        <div class="skills-container">
+            <div class="skill-card">
+                <div class="icon-box">
+                    <img src="./skills images/uxResearch.png" alt="UX Research Icon">
+                </div>
+                <div class="skill-title">UX Research</div>
+            </div>
+            <div class="skill-card">
+                <div class="icon-box">
+                    <img src="./skills images/wireframing.png" alt="Wireframing Icon">
+                </div>
+                <div class="skill-title">Wireframing</div>
+            </div>
+            <div class="skill-card">
+                <div class="icon-box">
+                    <img src="./skills images/userPersona.png" alt="User Persona Icon">
+                </div>
+                <div class="skill-title">User Persona</div>
+            </div>
+            <div class="skill-card">
+                <div class="icon-box">
+                    <img src="./skills images/figma.png" alt="Brand Identity Icon">
+                </div>
+                <div class="skill-title">Figma</div>
+            </div>
+            <div class="skill-card">
+                <div class="icon-box">
+                    <img src="./skills images/collaboration.png" alt="Accessibility Icon">
+                </div>
+                <div class="skill-title">Collaboration</div>
+            </div>
+            <div class="skill-card">
+                <div class="icon-box">
+                    <img src="./skills images/prototyping.png" alt="Collaboration Icon">
+                </div>
+                <div class="skill-title">Prototyping</div>
+            </div>
+            <div class="skill-card">
+                <div class="icon-box">
+                    <img src="./skills images/html.png" alt="Feedback Icon">
+                </div>
+                <div class="skill-title">HTML</div>
+            </div>
+            <div class="skill-card">
+                <div class="icon-box">
+                    <img src="./skills images/css.png" alt="Prototyping Icon">
+                </div>
+                <div class="skill-title">CSS</div>
+            </div>
+            <div class="skill-card">
+                <div class="icon-box">
+                    <img src="./skills images/js.png" alt="User Testing Icon">
+                </div>
+                <div class="skill-title">JavaScript</div>
+            </div>
+            <div class="skill-card">
+                <div class="icon-box">
+                    <img src="./skills images/C.png" alt="User Testing Icon">
+                </div>
+                <div class="skill-title">C Language</div>
+            </div>
+            <div class="skill-card">
+                <div class="icon-box">
+                    <img src="./skills images/python.png" alt="User Testing Icon">
+                </div>
+                <div class="skill-title">Python</div>
+            </div>
+            <div class="skill-card">
+                <div class="icon-box">
+                    <img src="./skills images/xml.png" alt="User Testing Icon">
+                </div>
+                <div class="skill-title">XML</div>
+            </div>
+        </div>
+    </section>
+    <!-- projecvts -->
+    <section class="portfolio-section">
+        <h2>Projects</h2>
+        <div class="portfolio-container">
+            <div class="portfolio-card">
+                <img src="./portfolio-card images/one.jpg" alt="The computer stomach">
+                <p>The computer stomach</p>
+            </div>
+            <div class="portfolio-card">
+                <img src="./portfolio-card images/tow.jpg" alt="Photorama">
+                <p>Photorama</p>
+            </div>
+            <div class="portfolio-card">
+                <img src="./portfolio-card images/three.jpg" alt="Sweden">
+                <p>Sweden</p>
+            </div>
+        </div>
+    </section>
+
+    <br><br><br>
+    <div class="artical-container">
+        <h1>Article Links</h1>
+        <div class="link-card">
+            <div class="link-text">
+                <h3>A Guide to Effective UX Design</h3>
+                <p>Digital experiences that resonate with users</p>
+            </div>
+            <div class="arrow">
+                <a href="#">
+                    <span>&#8594;</span>
+                </a>
+            </div>
+        </div>
+        <div class="link-card">
+            <div class="link-text">
+                <h3>Color Psychology in UI Design</h3>
+                <p>Using colors to engage in user interfaces</p>
+            </div>
+            <div class="arrow">
+                <a href="#">
+                    <span>&#8594;</span>
+                </a>
+            </div>
+        </div>
+        <div class="link-card">
+            <div class="link-text">
+                <h3>From Sketch to Prototype</h3>
+                <p>From designs into interactive views</p>
+            </div>
+            <div class="arrow">
+                <a href="#">
+                    <span>&#8594;</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+    <br><br><br>
+
+    <div class="container4">
+        <div class="content">
+            <h1>Philosophy</h1>
+            <p>
+                I believe that design is more than just aesthetics—it's about crafting meaningful experiences. My design
+                approach combines creativity with empathy, placing the user at the heart of every decision. Whether it's
+                creating intuitive user interfaces or mapping out user journeys, I aim to design products that resonate
+                with people and enhance their interactions.
+            </p>
+            <a href="#" class="learn-more">Learn more</a>
+        </div>
+        <div class="image-container">
+            <img src="./web.webp" height="300px" alt="Character Image">
+        </div>
+    </div>
+
+    <!-- collab -->
+    <div class="collaborate-section">
+        <h2>Let's Collaborate</h2>
+        <div class="collaborate-container">
+            <div class="collaborate-item">
+                <a href="mailto:thevishuarijitian@gmail.com" target="_blank">
+                    <div class="icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <span>Email</span>
+                </a>
+            </div>
+            <div class="collaborate-item">
+                <a href="https://www.linkedin.com/in/vishalprj" target="_blank">
+                    <div class="icon">
+                        <i class="fab fa-linkedin"></i>
+                    </div>
+                    <span>LinkedIn</span>
+                </a>
+            </div>
+            <div class="collaborate-item">
+                <a href="https://github.com/vishalprjgh" target="_blank">
+                    <div class="icon">
+                        <i class="fa-brands fa-github"></i>
+
+                    </div>
+                    <span>GitHub</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <div id="scrollIcon">
+        <i id="scrollDown" class="fa-solid fa-angles-down active" style="color: #fdf85e;"></i>
+        <i id="scrollUp" class="fa-solid fa-angles-up" style="color: #fdf85e;"></i>
+    </div>
+        
+
+    <footer>
+        <div class="centered-container">
+            <h1 class="centered-name">VISHU</h1>
+            <hr class="divider">
+            <small class="left-aligned-text">Vishu P.</small>
+        </div>
+    </footer>
+<script src="./srollTopDown.js"></script>
+    <script>
+        function hideArrow() {
+            document.getElementById('leftArrow').classList.add('hide');
+        }
+
+        
+
+       
+    </script>
+
+
+    <!-- <script>
+        let faviconIndex = 1;
+        const maxFaviconIndex = 3; // Number of favicon images
+
+        function changeFavicon() {
+            faviconIndex = (faviconIndex % maxFaviconIndex) + 1;
+            const favicon = document.getElementById('favicon');
+            favicon.href = `favicon${faviconIndex}.ico`;
+        }
+
+        setInterval(changeFavicon, 500); // Change favicon every 500ms
+    </script> -->
+</body>
+
+</html>
