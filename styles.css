@@ -19,6 +19,8 @@ body {
     color: #fff;
     line-height: 1.6;
     font-family: var(--main-font);
+    -ms-user-select: none;
+    user-select: none;
 
 }
 
@@ -36,7 +38,7 @@ a {
     line-height: 1;
 }
 
-h1{
+h1 {
     font-size: 25px;
     font-style: normal;
     font-family: var(--main-font);
@@ -129,22 +131,23 @@ h2 {
         margin-left: -90px;
     }
 }
-@media(max-width:992px){
-   
-    
+
+@media(max-width:992px) {
+
+
     .profile-image {
         flex-shrink: 0;
         text-align: center;
         margin-bottom: 20px;
         /* Add spacing for smaller screens */
-        
+
     }
-    
+
     .avatar-circle {
         width: 200px;
         height: 200px;
     }
-    
+
     .avatar-circle img {
         width: 100%;
         /* Responsive image size */
@@ -153,20 +156,21 @@ h2 {
         margin-left: 20px;
 
     }
+
     .hero-heading1 {
         line-height: 80px;
         font-size: 70px;
         font-weight: 1000;
-    
+
         text-align: center;
         margin-right: 100px;
     }
-    
+
     .hero-heading2 {
         /* line-height: 80px; */
         font-size: 70px;
         font-weight: 1000;
-    
+
         text-align: center;
         margin-left: -20px;
     }
@@ -273,8 +277,8 @@ h2 {
 }
 
 
-/* Responsive Design  this is the large its can be changable 100000 to more by vishu */  
-@media (min-width: 1000000px) {
+/* Responsive Design  this is the large its can be changable 100000 to more by vishu */
+@media (max-width: 0px) {
     .container {
         padding: 20px;
         flex-direction: column;
@@ -316,8 +320,9 @@ h2 {
         box-shadow: 0px 5px 0px rgba(0, 0, 0, 0.4);
         cursor: pointer;
         transition: background-color 0.3s ease;
-    
+
     }
+
     .get-connect-btn {
         background-color: var(--custom-yellow);
         color: #000;
@@ -325,12 +330,12 @@ h2 {
         cursor: pointer;
         border: 1px solid black;
         margin-left: 150px;
-    
-    
+
+
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 600px) {
     .container {
         flex-direction: column;
         text-align: center;
@@ -994,7 +999,7 @@ p {
     
 } */
 
-@media (max-width: 768px){
+@media (max-width: 768px) {
     .about-section-pop {
         padding: 30px 10px;
     }
@@ -1007,7 +1012,7 @@ p {
         font-size: 1rem;
     }
 
-    .about-section-pop  {
+    .about-section-pop {
         font-size: 1.1rem;
     }
 }
@@ -1015,11 +1020,16 @@ p {
 /* popover let's connet section */
 .center-container {
     display: flex;
-    justify-content: center; /* Centers horizontally */
-    align-items: center; /* Centers vertically */
-    min-height: 100vh; /* Full height of the viewport */
-    background-color: #282828; /* Optional: Background color for the entire page */
-    padding: 20px; /* Optional: Padding around the form */
+    justify-content: center;
+    /* Centers horizontally */
+    align-items: center;
+    /* Centers vertically */
+    min-height: 100vh;
+    /* Full height of the viewport */
+    background-color: #282828;
+    /* Optional: Background color for the entire page */
+    padding: 20px;
+    /* Optional: Padding around the form */
 }
 
 
@@ -1036,40 +1046,41 @@ p {
 
 
 
-  }
-  
-  .contact-form label {
+}
+
+.contact-form label {
     color: rgb(217, 217, 217);
     font-weight: bold;
 
-  }
-  
-  .contact-form .heading {
+}
+
+.contact-form .heading {
     font-size: 24px;
     color: black;
     margin-bottom: 12px;
     font-weight: bold;
     display: block;
-    
-  }
-  
-  .contact-form form {
+
+}
+
+.contact-form form {
     display: flex;
     flex-direction: column;
-  }
-  
-  .contact-form label {
+}
+
+.contact-form label {
     margin-bottom: 10px;
-  }
-  
-  textarea {
+}
+
+textarea {
     resize: none;
     height: 80px;
     width: auto;
     font-weight: bold;
-  }
-  
-  .contact-form input, .contact-form textarea {
+}
+
+.contact-form input,
+.contact-form textarea {
     padding: 10px;
     border: none;
     border-radius: 5px;
@@ -1078,11 +1089,11 @@ p {
     background-color: #00000065;
     border: 1px solid rgb(60, 60, 60);
     color: #e8e8e8;
-  }
-  
-  
-  
-  .contact-form button {
+}
+
+
+
+.contact-form button {
     padding: 14px 25px;
     border-radius: 5px;
     display: inline-block;
@@ -1094,49 +1105,56 @@ p {
     background-color: var(--custom-yellow);
     cursor: pointer;
     font-weight: bold;
-  
-  }
-  .contact-form button:hover {
+
+}
+
+.contact-form button:hover {
     background-color: #e0a806;
     transform: translateY(-3px);
-} 
-.contact-form input{
+}
+
+.contact-form input {
     font-weight: bold;
 
 }
- 
-::placeholder{
-    font-weight:normal;
+
+::placeholder {
+    font-weight: normal;
     padding: 5px;
     color: #ffffff5c;
-}  
+}
 
 
 
 
-  @media (max-width: 450px)and (min-width: 0px) {
+@media (max-width: 450px)and (min-width: 0px) {
     .contact-form {
-        padding: 6px; /* Further reduce padding for mobile screens */
-        height:450px;
+        padding: 6px;
+        /* Further reduce padding for mobile screens */
+        height: 450px;
         min-width: 300px;
-    
+
     }
 
     .contact-form .heading {
         margin: 10px;
-        font-size: 20px; /* Smaller heading for mobile */
+        font-size: 20px;
+        /* Smaller heading for mobile */
         text-align: center;
     }
 
-    .contact-form input, label,
+    .contact-form input,
+    label,
     .contact-form textarea,
-    .contact-form button{
+    .contact-form button {
         margin: 10px 12px 10px 12px;
-        padding:10px -5px 10px -5px; /* Reduce padding for smaller elements on mobile */
-        font-size: 16px; /* Smaller font size for mobile */
-        
+        padding: 10px -5px 10px -5px;
+        /* Reduce padding for smaller elements on mobile */
+        font-size: 16px;
+        /* Smaller font size for mobile */
+
     }
-   
+
 }
 
 
@@ -1148,4 +1166,11 @@ p {
 
 ::-webkit-scrollbar {
     display: none;
+}
+
+::selection {
+
+    -webkit-text-fill-color: transparent;
+    color: #000000;
+    /* Text color of selected text */
 }
