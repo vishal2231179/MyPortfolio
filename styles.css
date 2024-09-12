@@ -19,8 +19,7 @@ body {
     color: #fff;
     line-height: 1.6;
     font-family: var(--main-font);
-    -ms-user-select: none;
-    user-select: none;
+  
 
 }
 
