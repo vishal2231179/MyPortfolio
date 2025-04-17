@@ -1170,6 +1170,6 @@ textarea {
 ::selection {
 
     -webkit-text-fill-color: transparent;
-    color: #000000;
+    color: #00000000;
     /* Text color of selected text */
 }
