@@ -305,7 +305,7 @@ h2 { font-size: 2rem; text-align: center; color: var(--custom-yellow); }
 .learn-more {
     display: inline-block;
     background-color: var(--custom-yellow);
-    color: var(--secondary-bg);
+    color: #111;
     padding: 10px 30px;
     font-size: 1rem;
     text-decoration: none;
@@ -560,7 +560,7 @@ h2 { font-size: 2rem; text-align: center; color: var(--custom-yellow); }
 }
 
 @media (max-width: 768px) {
-    .portfolio-card { max-width: 40%; }
+    .portfolio-card { max-width: 50%; }
     .about-section-pop { padding: 20px 20px; }
     .about-section-pop h1 { font-size: 2rem; }
     .about-section-pop p { font-size: 1rem; }
