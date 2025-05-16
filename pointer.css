@@ -1,0 +1,26 @@
+ /* Standard Green Mouse Pointer CSS */
+ body {
+   /* Exact standard pointer shape in green */
+   cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><path fill="%23008844" d="M1.5 1.5L28 28H18L16 19L9 28Z"/><path fill="%2300AA55" d="M3.5 3.5L25 25H17L15 17L9 25Z"/></svg>') 1 1, pointer;
+
+   /* Optional styling for demo purposes */
+   font-family: 'Segoe UI', system-ui, sans-serif;
+   background: #f8f8f8;
+   min-height: 100vh;
+   margin: 0;
+ }
+
+ /* For interactive elements (optional) */
+ button,
+ input,
+ textarea,
+ a,
+ [clickable] {
+   cursor: inherit;
+ }
+
+ /* Two-tone green color scheme (optional) */
+ :root {
+   --green-primary: #00AA55;
+   --green-dark: #008844;
+ }
