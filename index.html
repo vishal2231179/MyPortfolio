@@ -4,11 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UI/UX Designer</title>
+    <link rel="stylesheet" href="./side_pannel.css">
+    <link rel="stylesheet" href="./philosophy.css">
     <link rel="stylesheet" href="styles.css">
     <!-- <link rel="stylesheet" href="Philosophy.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="shortcut icon" id="favicon" href="./fav.png" type="image/x-icon">
     <style>
+
+        
         .arrow-container { display: flex; align-items: center; }
         .fa-solid.fa-arrow-left-long { 
             font-size: 14px; 
@@ -215,47 +219,68 @@
         </div>
     </section>
 
-    <!-- Articles section -->
-    <div class="artical-container">
-        <h1>Article Links</h1>
-        <div class="link-card">
-            <div class="link-text">
+
+
+<!-- Articles section -->
+<section class="articles-section">
+    <h1 class="section-title">Article Links</h1>
+    
+    <div class="article-cards">
+        <!-- Card 1 -->
+        <div class="article-card">
+            <div class="card-content">
                 <h3>A Guide to Effective UX Design</h3>
                 <p>Digital experiences that resonate with users</p>
             </div>
-            <div class="arrow">
-                <a href="#"><span>&#8594;</span></a>
-            </div>
+            <button class="card-action" data-article="ux-design">
+                <span class="arrow-icon">→</span>
+            </button>
         </div>
-        <!-- Other article cards... -->
-         <div class="link-card">
-            <div class="link-text">
+        
+        <!-- Card 2 -->
+        <div class="article-card">
+            <div class="card-content">
                 <h3>Color Psychology in UI Design</h3>
                 <p>Using colors to engage in user interfaces</p>
             </div>
-            <div class="arrow">
-                <a href="#">
-                    <span>&#8594;</span>
-                </a>
-            </div>
+            <button class="card-action" data-article="color-psychology">
+                <span class="arrow-icon">→</span>
+            </button>
         </div>
-        <div class="link-card">
-            <div class="link-text">
+        
+        <!-- Card 3 -->
+        <div class="article-card">
+            <div class="card-content">
                 <h3>From Sketch to Prototype</h3>
                 <p>From designs into interactive views</p>
             </div>
-            <div class="arrow">
-                <a href="#">
-                    <span>&#8594;</span>
-                </a>
-            </div>
+            <button class="card-action" data-article="sketch-prototype">
+                <span class="arrow-icon">→</span>
+            </button>
         </div>
     </div>
+</section>
+
+<!-- Article Panel -->
+<div class="article-panel-overlay" id="panelOverlay"></div>
+<aside class="article-panel" id="sidePanel">
+    <div class="panel-header">
+        <button class="close-panel" aria-label="Close panel">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+        </button>
+    </div>
+    <div class="panel-content" id="articleContent">
+        <!-- Dynamic content will be inserted here -->
+    </div>
+</aside>
+
 
     <br><br><br><br>
 
     <!-- Philosophy section -->
-    <div class="container4">
+    <!-- <div class="container4">
         <div class="content">
             <h1>Philosophy</h1>
             <p>I believe that design is more than just aesthetics—it's about crafting meaningful experiences. My design approach combines creativity with empathy, placing the user at the heart of every decision. Whether it's creating intuitive user interfaces or mapping out user journeys, I aim to design products that resonate with people and enhance their interactions.</p>
@@ -264,7 +289,59 @@
         <div class="image-container">
             <img src="./web.png" height="300px" alt="Character Image">
         </div>
+    </div> -->
+<!-- Philosophy section -->
+<div class="container4">
+    <div class="content">
+        <h1>Philosophy</h1>
+        <p >I believe that design is more than just aesthetics—it's about crafting meaningful experiences. My design approach combines creativity with empathy, placing the user at the heart of every decision. Whether it's creating intuitive user interfaces or mapping out user journeys, I aim to design products that resonate with people and enhance their interactions.</p>
+        <button class="learn-more" id="philosophyBtn">Learn more</button>
     </div>
+    <div class="image-container">
+        <img src="./web.png" height="300px" alt="Character Image">
+    </div>
+</div>
+
+<!-- Philosophy Panel Overlay -->
+<div class="panel-overlay" id="philosophyOverlay"></div>
+<div class="philosophy-panel" id="philosophyPanel">
+    <button class="close-btn" id="closePhilosophy">&times;</button>
+    <div class="philosophy-content">
+        <h2>My Design Philosophy</h2>
+        <div class="philosophy-details">
+            <div class="philosophy-point">
+                <h3>User-Centered Approach</h3>
+                <p>Every design decision begins with understanding the user's needs, behaviors, and pain points. I employ research methods like user interviews, surveys, and usability testing to ensure designs solve real problems.</p>
+            </div>
+            
+            <div class="philosophy-point">
+                <h3>Empathy in Design</h3>
+                <p>Design should serve people, not just business goals. I create solutions that consider diverse perspectives and accessibility needs, ensuring inclusive experiences for all users.</p>
+            </div>
+            
+            <div class="philosophy-point">
+                <h3>Form Follows Function</h3>
+                <p>While aesthetics are important, they should never compromise usability. I strike a balance between beautiful visuals and intuitive interactions that guide users effortlessly.</p>
+            </div>
+            
+            <div class="philosophy-point">
+                <h3>Iterative Process</h3>
+                <p>Great design evolves through continuous testing and refinement. I embrace feedback loops and data-driven decisions to progressively enhance the user experience.</p>
+            </div>
+            
+            <div class="philosophy-point">
+                <h3>Holistic Thinking</h3>
+                <p>I consider the entire ecosystem of a product—from the first touchpoint to ongoing engagement—creating cohesive experiences across all channels and platforms.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
 
     <!-- Collaboration section -->
     <div class="collaborate-section">
@@ -437,9 +514,6 @@ body {
 
 
 
-
-
-
     
     <!-- Footer -->
     <footer>
@@ -449,7 +523,7 @@ body {
             <small class="left-aligned-text">VISHAL P.</small>
         </div>
     </footer>
-
+    <script src="./side_pannel.js"></script>
     <script src="./srollTopDown.js"></script>
     <script>
         function hideArrow() {
