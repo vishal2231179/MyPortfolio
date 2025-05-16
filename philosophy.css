@@ -1,0 +1,432 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=M+PLUS+Rounded+1c&display=swap');
+@import url('https://example.com/path-to-your-font/WoodhamBC.css');
+
+:root {
+    --custom-yellow: #59e762;
+    --main-font: "Josefin Sans", sans-serif;
+    --secondary-font: "M PLUS Rounded 1c", sans-serif;
+    --primary-bg: #3fe84a;
+    --secondary-bg: #288b6225;
+    --primary-gray:#12211a;
+    --text-color: #ffffffdd;
+}
+
+
+/* Philosophy Panel Styles */
+.philosophy-panel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 45%;
+    height: 100%;
+    background: var(--primary-gray);
+    border: 1px solid var(--custom-yellow);
+    z-index: 1002;
+    transform: translateX(100%);
+    transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    padding: 40px;
+    font-family: var(--main-font);
+}
+
+.philosophy-panel.open {
+    transform: translateX(0);
+}
+
+.philosophy-content h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: var(--text-color);
+    border-bottom: 2px solid var(--custom-yellow);
+    padding-bottom: 1rem;
+}
+
+.philosophy-point {
+    margin-bottom: 2.5rem;
+}
+
+.philosophy-point h3 {
+    font-size: 1.3rem;
+    color: var(--custom-yellow);
+    margin-bottom: 0.8rem;
+    position: relative;
+    padding-left: 1.5rem;
+        font-family: var(--main-font);
+
+}
+
+.philosophy-point h3::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    background: var(--custom-yellow);
+    border-radius: 50%;
+}
+
+.philosophy-point p {
+    line-height: 1.7;
+    color: var(--text-color);
+    font-size: 1rem;
+}
+
+/* Learn More Button */
+.learn-more {@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
+:root {
+    --custom-yellow: #59e762;
+    --main-font: "Josefin Sans", sans-serif;
+    --secondary-font: "M PLUS Rounded 1c", sans-serif;
+    --primary-bg: #3fe84a;
+    --secondary-bg: rgba(40, 139, 98, 0.15); /* Converted from #288b6225 */
+    --primary-gray: #12211a;
+    --text-color: rgba(255, 255, 255, 0.87); /* Converted from #ffffffdd */
+}
+
+/* Base font family for body */
+body {
+    font-family: var(--main-font);
+    color: var(--text-color);
+}
+
+/* Philosophy Panel Styles */
+.philosophy-panel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 45%;
+    height: 100%;
+    background: var(--primary-gray);
+    border: 1px solid var(--custom-yellow);
+    z-index: 1002;
+    transform: translateX(100%);
+    transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    padding: 40px;
+}
+
+.philosophy-panel.open {
+    transform: translateX(0);
+}
+
+.philosophy-content h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: var(--text-color);
+    border-bottom: 2px solid var(--custom-yellow);
+    padding-bottom: 1rem;
+        font-family: var(--main-font);
+
+    font-weight: 700;
+}
+
+.philosophy-point {
+    margin-bottom: 2.5rem;
+}
+
+.philosophy-point h3 {
+    font-size: 1.3rem;
+    color: var(--custom-yellow);
+    margin-bottom: 0.8rem;
+    position: relative;
+    padding-left: 1.5rem;
+       font-family: var(--main-font);
+
+    font-weight: 500;
+}
+
+.philosophy-point h3::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    background: var(--custom-yellow);
+    border-radius: 50%;
+}
+
+.philosophy-point p {
+    line-height: 1.7;
+    color: var(--text-color);
+    font-size: 1rem;
+    font-family: var(--main-font);
+}
+
+/* Learn More Button */
+.learn-more {
+    display: inline-block;
+    padding: 12px 25px;
+    background: transparent;
+    color: var(--text-color);
+    border: 2px solid var(--custom-yellow);
+    border-radius: 30px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    margin-top: 20px;
+    font-family: var(--secondary-font);
+    font-weight: 600;
+
+    
+}
+
+.learn-more:hover {
+    background: var(--custom-yellow);
+    color: var(--primary-gray);
+}
+
+/* Close Button */
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 28px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-color);
+    transition: 0.2s;
+    z-index: 1003;
+    font-family: var(--main-font);
+}
+
+.close-btn:hover {
+    color: var(--custom-yellow);
+    transform: scale(1.1);
+}
+
+/* Container4 Styles (Philosophy Section) */
+.container4 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4rem 2rem;
+    background: var(--secondary-bg);
+    border-radius: 15px;
+    margin: 2rem auto;
+    max-width: 1200px;
+    border: 1px solid var(--custom-yellow);
+    font-family: var(--main-font);
+}
+
+.container4 h1 {
+    font-size: 2.5rem;
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+    font-family: var(--main-font);
+    font-weight: 700;
+}
+
+.container4 p {
+    color: var(--text-color);
+    line-height: 1.7;
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .philosophy-panel {
+        width: 85%;
+        padding: 25px;
+    }
+    
+    .container4 h1 {
+        font-size: 2rem;
+    }
+    
+    .philosophy-content h2 {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .philosophy-panel {
+        width: 100%;
+        padding: 20px 15px;
+    }
+    
+    .container4 h1 {
+        font-size: 1.8rem;
+    }
+    
+    .philosophy-point h3 {
+        font-size: 1.2rem;
+    }
+}
+    display: inline-block;
+    padding: 12px 25px;
+    background: transparent;
+    color: var(--custom-yellow);
+    border: 2px solid var(--custom-yellow);
+    border-radius: 30px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    margin-top: 20px;
+        font-family: var(--main-font);
+
+}
+
+.learn-more:hover {
+    background: var(--custom-yellow);
+    color: var(--primary-gray);
+}
+
+/* Close Button */
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 28px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-color);
+    transition: 0.2s;
+    z-index: 1003;
+}
+
+.close-btn:hover {
+    color: var(--custom-yellow);
+    transform: scale(1.1);
+}
+
+/* Overlay */
+.panel-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1001;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+.panel-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Container4 Styles (Philosophy Section) */
+.container4 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4rem 2rem;
+    background: var(--secondary-bg);
+    border-radius: 15px;
+    margin: 2rem auto;
+    max-width: 1200px;
+    border: 1px solid var(--custom-yellow);
+}
+
+.container4 .content {
+    flex: 1;
+    padding-right: 2rem;
+}
+
+.container4 h1 {
+    font-size: 2.5rem;
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+       font-family: var(--main-font);
+
+}
+
+.container4 p {
+    color: var(--text-color);
+    line-height: 1.7;
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+.container4 .image-container {
+    flex: 1;
+    text-align: center;
+}
+
+.container4 .image-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .philosophy-panel {
+        width: 60%;
+        padding: 30px;
+    }
+    
+    .container4 {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .container4 .content {
+        padding-right: 0;
+        margin-bottom: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .philosophy-panel {
+        width: 85%;
+        padding: 25px;
+    }
+    
+    .container4 {
+        padding: 2rem 1.5rem;
+    }
+    
+    .container4 h1 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .philosophy-panel {
+        width: 95%;
+        padding: 20px 10px;
+    }
+    
+    .philosophy-content h2 {
+        font-size: 1.8rem;
+    }
+    
+    .philosophy-point h3 {
+        font-size: 1.2rem;
+    }
+    
+    .container4 {
+        padding: 1.5rem 1rem;
+    }
+    
+    .container4 h1 {
+        font-size: 1.8rem;
+    }
+    
+    .container4 p {
+        font-size: 1rem;
+    }
+    
+    .learn-more {
+        padding: 10px 20px;
+    }
+}
