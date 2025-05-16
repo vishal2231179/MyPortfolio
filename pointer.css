@@ -9,14 +9,6 @@
    margin: 0;
  }
 
- /* For interactive elements (optional) */
- button,
- input,
- textarea,
- a,
- [clickable] {
-   cursor: inherit;
- }
 
  /* Two-tone green color scheme (optional) */
  :root {
