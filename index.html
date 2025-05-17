@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="./cardpopup.css" />
     <link rel="stylesheet" href="./game.css" />
+    <link rel="stylesheet" href="./chatbot.css" />
     <!-- <link rel="stylesheet" href="./pointer.css" /> -->
     <!-- <link rel="stylesheet" href="Philosophy.css"> -->
     <link
@@ -502,6 +503,34 @@
       </div>
     </div>
 
+    <!-- Floating chat bubble -->
+    <button class="chat-bubble" id="chatBubble" aria-label="Open chat">
+      <img
+        src="https://cdn-icons-png.flaticon.com/512/4712/4712035.png"
+        alt="Chat icon"
+      />
+    </button>
+
+    <!-- Overlay -->
+    <div class="chat-overlay" id="chatOverlay"></div>
+
+    <!-- Chat panel container -->
+    <div class="chat-panel-container" id="chatPanelContainer">
+      <button class="close-btn" id="closeBtn" aria-label="Close chat">×</button>
+      <div class="chat-panel">
+        <div class="chat-header">
+          <div class="chat-title">Vishal Prajapati</div>
+        </div>
+        <div class="iframe-container">
+          <iframe
+            src="https://www.chatbase.co/chatbot-iframe/hhn_s_bK69Q4Fa488db6u"
+            allow="microphone"
+            title="Chatbot interface"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+
     <!-- Collaboration section -->
     <div class="collaborate-section">
       <h2>Let's Collaborate</h2>
@@ -701,6 +730,8 @@ body {
     <script src="./side_pannel.js"></script>
     <script src="./srollTopDown.js"></script>
     <script src="./cardpopup.js"></script>
+    <script src="./chatbot.js"></script>
+
     <script>
       function hideArrow() {
         document.getElementById("leftArrow").classList.add("hide");
