@@ -82,11 +82,12 @@ h2 {
 }
 
 .linkedin-btn {
-    background-color: var(--secondary-bg);
+    background-color: var(--custom-yellow);
 }
 
 .linkedin-btn:hover {
-    background-color: #55555544;
+    background-color: #198b2c;
+
 }
 
 .email-btn {
