@@ -221,7 +221,7 @@ function startGame() {
 
 // Event Listeners
 document.getElementById("pauseBtn").addEventListener("click", togglePause);
-document.getElementById("closeBtn").addEventListener("click", closeGame);
+document.getElementById("closeB").addEventListener("click", closeGame);
 document.getElementById("restartBtn").addEventListener("click", resetGame);
 document.getElementById("gameTrigger").addEventListener("click", startGame);
 

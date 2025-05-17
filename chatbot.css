@@ -56,11 +56,11 @@
 }
 
 .chat-panel-container.active {
-  height: 70vh;
+  height: 80vh;
   max-height: 600px;
-  width: 50vh;
+  width: 60vh;
   transform: translateX(0);
-  margin-bottom: 180px;
+  margin-bottom: 200px;
   /* margin-right: 50px; */
 
 }
@@ -150,17 +150,18 @@
 }
 
 /* Responsive adjustments */
-@media (max-width: 300px),
-(min-width: 500px) {
+@media (max-width: 500px),
+(min-width: 400px) {
   .chat-panel-container.active {
-    height: 65vh;
+    height: 60vh;
     max-height: none;
-    width: 50vw;
+    width: 75vw;
+    margin-bottom: 220px;
   }
 
   .chat-bubble {
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     bottom: 100px;
     right: 10px;
   }
