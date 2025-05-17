@@ -92,7 +92,8 @@ h2 {
 .email-btn {
     background-color: var(--secondary-bg);
 
-    color: #000;
+    color: var(--text-color);
+
 }
 
 .email-btn:hover {
