@@ -18,6 +18,7 @@
   padding: 30px;
   border-radius: 15px;
   max-width: 500px;
+  min-height: 250px;
   width: 90%;
   max-height: 80vh;
   overflow-y: auto;
@@ -83,4 +84,14 @@
   font-style: italic;
   margin-top: 15px;
   display: inline-block;
+}
+
+@media (max-width: 500px) {
+
+  .modal-content {
+    max-width: 350px;
+    min-height: 300px;
+    width: 300px;
+  }
+
 }
