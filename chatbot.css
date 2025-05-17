@@ -150,11 +150,12 @@
 }
 
 /* Responsive adjustments */
-@media (max-width: 300px) {
+@media (max-width: 300px),
+(min-width: 500px) {
   .chat-panel-container.active {
-    height: 70vh;
+    height: 65vh;
     max-height: none;
-    width: 90vw;
+    width: 50vw;
   }
 
   .chat-bubble {
