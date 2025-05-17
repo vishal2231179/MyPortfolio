@@ -86,7 +86,7 @@
   display: inline-block;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 550px) {
 
   .modal-content {
     max-width: 350px;
