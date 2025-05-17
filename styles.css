@@ -76,7 +76,7 @@ h2 {
     padding: 7px 25px;
     border-radius: 5px;
     margin: 10px 0;
-    font-family: var(--secondary-font);
+
     font-weight: 400;
     font-size: 12px;
 }
@@ -195,13 +195,13 @@ h2 {
 
 /* Skills Section */
 .skills-container {
+    cursor: pointer;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 25px;
     max-width: 1200px;
     margin: 50px auto;
     padding: 20px;
-    cursor: pointer;
 }
 
 .skill-card {

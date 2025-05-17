@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./philosophy.css" />
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="./cardpopup.css" />
+    <link rel="stylesheet" href="./game.css" />
     <!-- <link rel="stylesheet" href="./pointer.css" /> -->
     <!-- <link rel="stylesheet" href="Philosophy.css"> -->
     <link
@@ -70,6 +71,9 @@
       <div class="container">
         <h2 style="color: #3fe84a">vishal</h2>
         <div class="buttons">
+          <button id="gameTrigger" class="play-btn">
+            <span class="controller-icon"></span> Let's Play
+          </button>
           <a
             href="./Vishal_Prajapati_UI-UX_Designer_Resume.pdf"
             target="_blank"
@@ -654,6 +658,37 @@ body {
 </style> -->
     <!-- Background -->
 
+    <div id="gameModal" class="game-modal">
+      <div class="game-content">
+        <div class="game-header">
+          <h3>Skill Collector Game</h3>
+          <div class="game-controls">
+            <button id="pauseBtn">⏸</button>
+            <button id="closeBtn">✕</button>
+          </div>
+        </div>
+
+        <div class="instructions">
+          <p>
+            ← → Arrow Keys to Move | Collect <span class="green">Skills</span> |
+            Avoid <span class="red">Bugs</span>
+          </p>
+        </div>
+
+        <canvas id="gameCanvas"></canvas>
+
+        <div class="mobile-controls">
+          <button id="mobileLeftBtn">←</button>
+          <button id="mobileRightBtn">→</button>
+        </div>
+
+        <div class="game-footer">
+          <span id="scoreDisplay">Score: 0</span>
+          <button id="restartBtn">↻ Restart</button>
+        </div>
+      </div>
+    </div>
+
     <!-- Footer -->
     <footer>
       <div class="centered-container">
@@ -662,6 +697,7 @@ body {
         <small class="left-aligned-text">VISHAL P.</small>
       </div>
     </footer>
+    <script src="./game.js"></script>
     <script src="./side_pannel.js"></script>
     <script src="./srollTopDown.js"></script>
     <script src="./cardpopup.js"></script>
