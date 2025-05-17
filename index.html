@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./side_pannel.css" />
     <link rel="stylesheet" href="./philosophy.css" />
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="./cardpopup.css" />
     <!-- <link rel="stylesheet" href="./pointer.css" /> -->
     <!-- <link rel="stylesheet" href="Philosophy.css"> -->
     <link
@@ -221,85 +222,107 @@
     <br /><br /><br /><br /><br /><br />
     <br />
 
-    <!-- Skills section -->
+    <!-- Your existing skills section -->
     <section>
       <h1 class="section-title">Skills</h1>
       <div class="skills-container">
-        <div class="skill-card">
+        <div class="skill-card" onclick="showSkillPopup('UX Research')">
           <div class="icon-box">
             <img src="uxResearch.png" alt="UX Research Icon" />
           </div>
           <div class="skill-title">UX Research</div>
         </div>
-        <!-- Other skill cards... -->
-        <div class="skill-card">
+
+        <div class="skill-card" onclick="showSkillPopup('Wireframing')">
           <div class="icon-box">
-            <img src=" wireframing.png" alt="Wireframing Icon" />
+            <img src="wireframing.png" alt="Wireframing Icon" />
           </div>
           <div class="skill-title">Wireframing</div>
         </div>
-        <div class="skill-card">
+
+        <!-- Add onclick to all other skill cards similarly -->
+        <div class="skill-card" onclick="showSkillPopup('User Persona')">
           <div class="icon-box">
-            <img src=" userPersona.png" alt="User Persona Icon" />
+            <img src="userPersona.png" alt="User Persona Icon" />
           </div>
           <div class="skill-title">User Persona</div>
         </div>
-        <div class="skill-card">
+
+        <div class="skill-card" onclick="showSkillPopup('Figma')">
           <div class="icon-box">
-            <img src=" figma.png" alt="Brand Identity Icon" />
+            <img src="figma.png" alt="Brand Identity Icon" />
           </div>
           <div class="skill-title">Figma</div>
         </div>
-        <div class="skill-card">
+
+        <div class="skill-card" onclick="showSkillPopup('Collaboration')">
           <div class="icon-box">
-            <img src=" collaboration.png" alt="Accessibility Icon" />
+            <img src="collaboration.png" alt="Accessibility Icon" />
           </div>
           <div class="skill-title">Collaboration</div>
         </div>
-        <div class="skill-card">
+
+        <div class="skill-card" onclick="showSkillPopup('Prototyping')">
           <div class="icon-box">
-            <img src=" prototyping.png" alt="Collaboration Icon" />
+            <img src="prototyping.png" alt="Collaboration Icon" />
           </div>
           <div class="skill-title">Prototyping</div>
         </div>
-        <div class="skill-card">
+
+        <div class="skill-card" onclick="showSkillPopup('HTML')">
           <div class="icon-box">
-            <img src=" html.png" alt="Feedback Icon" />
+            <img src="html.png" alt="Feedback Icon" />
           </div>
           <div class="skill-title">HTML</div>
         </div>
-        <div class="skill-card">
+
+        <div class="skill-card" onclick="showSkillPopup('CSS')">
           <div class="icon-box">
-            <img src=" css.png" alt="Prototyping Icon" />
+            <img src="css.png" alt="Prototyping Icon" />
           </div>
           <div class="skill-title">CSS</div>
         </div>
-        <div class="skill-card">
+
+        <div class="skill-card" onclick="showSkillPopup('JavaScript')">
           <div class="icon-box">
-            <img src=" js.png" alt="User Testing Icon" />
+            <img src="js.png" alt="User Testing Icon" />
           </div>
           <div class="skill-title">JavaScript</div>
         </div>
-        <div class="skill-card">
+
+        <div class="skill-card" onclick="showSkillPopup('C Language')">
           <div class="icon-box">
-            <img src=" C.png" alt="User Testing Icon" />
+            <img src="C.png" alt="User Testing Icon" />
           </div>
           <div class="skill-title">C Language</div>
         </div>
-        <div class="skill-card">
+
+        <div class="skill-card" onclick="showSkillPopup('Python')">
           <div class="icon-box">
-            <img src=" python.png" alt="User Testing Icon" />
+            <img src="python.png" alt="User Testing Icon" />
           </div>
           <div class="skill-title">Python</div>
         </div>
-        <div class="skill-card">
+
+        <div class="skill-card" onclick="showSkillPopup('XML')">
           <div class="icon-box">
-            <img src=" xml.png" alt="User Testing Icon" />
+            <img src="xml.png" alt="User Testing Icon" />
           </div>
           <div class="skill-title">XML</div>
         </div>
       </div>
     </section>
+
+    <!-- Modal Popup -->
+    <div class="modal-overlay" id="skillModal">
+      <div class="modal-content">
+        <button class="close-modal" onclick="closeModal()">×</button>
+        <h2 id="modalSkillTitle"></h2>
+        <div class="skill-details" id="skillDetails">
+          <!-- Content will be inserted here by JavaScript -->
+        </div>
+      </div>
+    </div>
 
     <!-- Projects section -->
     <section class="portfolio-section">
@@ -641,6 +664,7 @@ body {
     </footer>
     <script src="./side_pannel.js"></script>
     <script src="./srollTopDown.js"></script>
+    <script src="./cardpopup.js"></script>
     <script>
       function hideArrow() {
         document.getElementById("leftArrow").classList.add("hide");

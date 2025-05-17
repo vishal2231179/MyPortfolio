@@ -1,0 +1,86 @@
+/* Updated Modal Styles to match your theme */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  font-family: var(--main-font);
+}
+
+.modal-content {
+  background-color: var(--primary-gray);
+  padding: 30px;
+  border-radius: 15px;
+  max-width: 500px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
+  border: 1px solid var(--custom-yellow);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  color: var(--text-color);
+}
+
+.close-modal {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: var(--text-color);
+  transition: color 0.2s;
+}
+
+.close-modal:hover {
+  color: var(--custom-yellow);
+}
+
+.skill-details {
+  margin-top: 20px;
+  font-family: var(--secondary-font);
+}
+
+.skill-details p {
+  margin: 12px 0;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.project-link {
+  display: inline-block;
+  margin-top: 15px;
+  color: var(--custom-yellow);
+  text-decoration: none;
+  font-weight: 500;
+  transition: opacity 0.2s;
+}
+
+.project-link:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+#modalSkillTitle {
+  font-size: 1.5rem;
+  color: var(--custom-yellow);
+  margin-bottom: 10px;
+  font-weight: 600;
+  border-bottom: 1px solid rgba(89, 231, 98, 0.3);
+  padding-bottom: 10px;
+}
+
+.no-project {
+  color: var(--custom-yellow);
+  opacity: 0.8;
+  font-style: italic;
+  margin-top: 15px;
+  display: inline-block;
+}
