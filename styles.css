@@ -82,21 +82,22 @@ h2 {
 }
 
 .linkedin-btn {
-    background-color: var(--custom-yellow);
+    background-color: var(--secondary-bg);
 }
 
 .linkedin-btn:hover {
-    background-color: #198b2c;
-
+    background-color: #55555544;
 }
 
 .email-btn {
-    background-color: var(--custom-yellow);
+    background-color: var(--secondary-bg);
+
     color: #000;
 }
 
 .email-btn:hover {
-    background-color: #198b2c;
+    background-color: #55555544;
+
 }
 
 /* Profile Section */
