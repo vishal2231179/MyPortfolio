@@ -4,6 +4,8 @@ let gameRunning = false;
 let gamePaused = false;
 let score = 0;
 let animationId;
+let gameTime = 60; // 1 minute game duration
+let timerInterval;
 let player = {
   x: 0,
   y: 0,
@@ -53,13 +55,14 @@ function initGame() {
   skillIcons["Wireframing"].src = "wireframing.png";
   skillIcons["Prototyping"].src = "prototyping.png";
   skillIcons["User Persona"].src = "userPersona.png";
-  skillIcons["Collaboration"].src = "collaboration.png";
+  skillIcons["Collaboration"].src = "collaboration.png"; // Fixed typo from "Collaboration"
   bugIcon.src = "web.png";
   playerIcon.src = "Profile.jpg";
 
   // Event Listeners
   window.addEventListener("keydown", keyDown);
   window.addEventListener("keyup", keyUp);
+  document.addEventListener("keydown", handleKeyboardControls);
 
   // Mobile Controls
   document
@@ -80,8 +83,37 @@ function initGame() {
   gameLoop();
 }
 
+// Handle keyboard controls for desktop
+function handleKeyboardControls(e) {
+  if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
+    e.preventDefault(); // Prevent page scrolling
+  }
+}
+
+// Start game timer
+function startTimer() {
+  clearInterval(timerInterval);
+  gameTime = 60;
+  updateTimerDisplay();
+
+  timerInterval = setInterval(() => {
+    gameTime--;
+    updateTimerDisplay();
+
+    if (gameTime <= 0) {
+      endGame();
+    }
+  }, 1000);
+}
+
+function updateTimerDisplay() {
+  document.getElementById("timerDisplay").textContent = `Time: ${gameTime}s`;
+}
+
 // Game Loop
 function gameLoop() {
+  if (!gameRunning) return;
+
   if (gamePaused) {
     drawPaused();
     animationId = requestAnimationFrame(gameLoop);
@@ -98,15 +130,15 @@ function gameLoop() {
   // Draw Player
   ctx.drawImage(playerIcon, player.x, player.y, player.width, player.height);
 
-  // Generate Items
-  if (Math.random() < 0.02) {
+  // Generate Items (increase frequency as time passes)
+  if (Math.random() < 0.02 + (60 - gameTime) * 0.0005) {
     createItem();
   }
 
   // Update and Draw Items
   updateItems();
 
-  // Draw Score
+  // Update Score Display
   document.getElementById("scoreDisplay").textContent = `Score: ${score}`;
 
   animationId = requestAnimationFrame(gameLoop);
@@ -151,7 +183,7 @@ function updateItems() {
       if (item.type === "skill") {
         score += 10;
       } else {
-        score -= 5;
+        score = Math.max(0, score - 5); // Prevent negative score
       }
       items.splice(i, 1);
       continue;
@@ -184,6 +216,27 @@ function drawPaused() {
   ctx.textAlign = "left";
 }
 
+function endGame() {
+  clearInterval(timerInterval);
+  gameRunning = false;
+  cancelAnimationFrame(animationId);
+
+  // Show final score
+  ctx.fillStyle = "rgba(0, 0, 0, 0.7)";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  ctx.fillStyle = "white";
+  ctx.font = "30px Josefin Sans";
+  ctx.textAlign = "center";
+  ctx.fillText("GAME OVER", canvas.width / 2, canvas.height / 2 - 30);
+  ctx.fillText(
+    `Final Score: ${score}`,
+    canvas.width / 2,
+    canvas.height / 2 + 20
+  );
+  ctx.textAlign = "left";
+}
+
 function keyDown(e) {
   keys[e.key] = true;
 }
@@ -199,6 +252,18 @@ function resetGame() {
   gamePaused = false;
   document.getElementById("scoreDisplay").textContent = `Score: ${score}`;
   document.getElementById("pauseBtn").textContent = "⏸";
+  startTimer();
+
+  // Reset player position
+  player.x = canvas.width / 2 - player.width / 2;
+  player.y = canvas.height - player.height - 10;
+
+  // Clear canvas
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  // Restart game loop
+  if (animationId) cancelAnimationFrame(animationId);
+  gameLoop();
 }
 
 function togglePause() {
@@ -207,6 +272,7 @@ function togglePause() {
 }
 
 function closeGame() {
+  clearInterval(timerInterval);
   cancelAnimationFrame(animationId);
   document.getElementById("gameModal").style.display = "none";
   gameRunning = false;

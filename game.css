@@ -167,3 +167,38 @@
     padding: 6px;
   }
 }
+
+/* Add this to your CSS */
+.game-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  gap: 10px;
+}
+
+.game-info {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.game-info span {
+  background: #1a2e24;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+/* Update mobile controls to be more responsive */
+@media (min-width: 768px) {
+  .mobile-controls {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .mobile-controls {
+    display: flex;
+  }
+}
