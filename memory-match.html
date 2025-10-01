@@ -1,0 +1,322 @@
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memory Match</title>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <style>
+    :root {
+      --gray-dark: #0b0c0e;
+      --gray-light: #9CA3AF;
+      --green: #22C55E;
+      --green-scribble: rgba(34, 197, 94, 0.4);
+      --pink-bg: #FCE7F3;
+      --purple-bg: #EDE9FE;
+      --font-size-small: 0.75rem;
+      --letter-spacing: 0.12em;
+      --font-weight-medium: 500;
+      --font-weight-bold: 600;
+      --background-circle-size: 448px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #ffffff 0%, #e8f0ff 40%, #c3d7ff 100%);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    .background-circle {
+      position: absolute;
+      width: var(--background-circle-size);
+      height: var(--background-circle-size);
+      border-radius: 50%;
+      opacity: 0.25;
+      background: radial-gradient(circle at center, var(--pink-bg), transparent);
+      top: -120px;
+      left: -120px;
+      z-index: 0;
+    }
+
+    .game-container {
+      position: relative;
+      z-index: 10;
+      background: #fff;
+      border-radius: 0.75rem;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      padding: clamp(1rem, 5vw, 2rem);
+      max-width: 90vw;
+      text-align: center;
+      border: 2px solid var(--gray-dark);
+    }
+
+    h1 {
+      font-size: clamp(1.5rem, 5vw, 2rem);
+      font-weight: var(--font-weight-bold);
+      color: var(--gray-dark);
+      margin-bottom: 1rem;
+    }
+
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: clamp(1rem, 5vw, 2rem);
+      margin-bottom: 1rem;
+      font-size: clamp(0.875rem, 3vw, 1rem);
+      color: var(--gray-dark);
+      font-weight: var(--font-weight-medium);
+    }
+
+    .game-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(60px, 120px));
+      gap: 0.25rem;
+      margin: 0 auto;
+      background: var(--gray-light);
+      padding: 0.25rem;
+      border-radius: 0.5rem;
+    }
+
+    .card {
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--pink-bg);
+      color: var(--gray-dark);
+      font-size: clamp(1.25rem, 4vw, 1.5rem);
+      font-weight: var(--font-weight-bold);
+      border-radius: 0.25rem;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+
+    .card.flipped {
+      background: var(--green);
+      transform: rotateY(180deg);
+    }
+
+    .card.matched {
+      background: var(--green-scribble);
+      cursor: default;
+    }
+
+    .controls {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: center;
+      gap: clamp(0.5rem, 3vw, 1rem);
+    }
+
+    button {
+      background: var(--gray-dark);
+      color: var(--pink-bg);
+      border: none;
+      padding: 0.75rem 1.5rem;
+      font-size: var(--font-size-small);
+      font-weight: var(--font-weight-medium);
+      letter-spacing: var(--letter-spacing);
+      cursor: pointer;
+      border-radius: 0.5rem;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    button:hover {
+      background: var(--green);
+      transform: translateY(-2px);
+    }
+
+    .win-message {
+      margin-top: 1rem;
+      font-size: clamp(0.875rem, 3vw, 1rem);
+      color: var(--green);
+      font-weight: var(--font-weight-bold);
+      display: none;
+    }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 5;
+      pointer-events: none;
+    }
+
+    @media (max-width: 480px) {
+      .game-grid {
+        grid-template-columns: repeat(4, minmax(40px, 80px));
+      }
+
+      .card {
+        font-size: clamp(1rem, 3vw, 1.25rem);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="background-circle"></div>
+  <div class="game-container" role="region" aria-label="Memory Match Game">
+    <h1>Memory Match</h1>
+    <div class="stats">
+      <span>Moves: <span id="moveCount">0</span></span>
+      <span>Pairs: <span id="pairsFound">0/4</span></span>
+    </div>
+    <div class="game-grid" id="game" role="grid"></div>
+    <div class="controls">
+      <button onclick="resetGame()">Reset</button>
+      <button onclick="window.location.href='index.html'">Back to Portfolio</button>
+    </div>
+    <div class="win-message" id="winMessage">All Pairs Matched!</div>
+    <canvas id="confetti"></canvas>
+  </div>
+  <script>
+    const grid = document.getElementById('game');
+    const moveCountDisplay = document.getElementById('moveCount');
+    const pairsFoundDisplay = document.getElementById('pairsFound');
+    const winMessage = document.getElementById('winMessage');
+    const emojis = ['🎨', '🎨', '💻', '💻', '📱', '📱', '🖌️', '🖌️'];
+    let cards = [...emojis];
+    let flippedCards = [];
+    let moves = 0;
+    let pairsFound = 0;
+
+    function createBoard() {
+      grid.innerHTML = '';
+      cards.forEach((emoji, i) => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.setAttribute('role', 'gridcell');
+        card.setAttribute('aria-label', 'Card');
+        card.dataset.value = emoji;
+        card.addEventListener('click', () => flipCard(i));
+        grid.appendChild(card);
+      });
+    }
+
+    function flipCard(index) {
+      const card = grid.children[index];
+      if (flippedCards.length < 2 && !card.classList.contains('flipped') && !card.classList.contains('matched')) {
+        card.classList.add('flipped');
+        card.textContent = card.dataset.value;
+        flippedCards.push({ index, value: card.dataset.value });
+        if (flippedCards.length === 2) {
+          moves++;
+          moveCountDisplay.textContent = moves;
+          checkMatch();
+        }
+      }
+    }
+
+    function checkMatch() {
+      const [card1, card2] = flippedCards;
+      if (card1.value === card2.value) {
+        grid.children[card1.index].classList.add('matched');
+        grid.children[card2.index].classList.add('matched');
+        pairsFound++;
+        pairsFoundDisplay.textContent = `${pairsFound}/4`;
+        flippedCards = [];
+        checkWin();
+      } else {
+        setTimeout(() => {
+          grid.children[card1.index].classList.remove('flipped');
+          grid.children[card1.index].textContent = '';
+          grid.children[card2.index].classList.remove('flipped');
+          grid.children[card2.index].textContent = '';
+          flippedCards = [];
+        }, 1000);
+      }
+    }
+
+    function checkWin() {
+      if (pairsFound === 4) {
+        winMessage.style.display = 'block';
+        confetti({
+          particleCount: 100,
+          spread: 70,
+          origin: { y: 0.6 }
+        });
+      }
+    }
+
+    function shuffleCards() {
+      for (let i = cards.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [cards[i], cards[j]] = [cards[j], cards[i]];
+      }
+    }
+
+    function resetGame() {
+      moves = 0;
+      pairsFound = 0;
+      moveCountDisplay.textContent = moves;
+      pairsFoundDisplay.textContent = `${pairsFound}/4`;
+      winMessage.style.display = 'none';
+      flippedCards = [];
+      shuffleCards();
+      createBoard();
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        const focused = document.activeElement;
+        if (focused.classList.contains('card') && !focused.classList.contains('flipped') && !focused.classList.contains('matched')) {
+          const index = Array.from(grid.children).indexOf(focused);
+          flipCard(index);
+        }
+      }
+    });
+
+    resetGame();
+  </script>
+</body>
+</html>

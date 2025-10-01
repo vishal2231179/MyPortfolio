@@ -1,0 +1,312 @@
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Typing Speed Test</title>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <style>
+    :root {
+      --gray-dark: #0b0c0e;
+      --gray-light: #9CA3AF;
+      --green: #22C55E;
+      --green-scribble: rgba(34, 197, 94, 0.4);
+      --pink-bg: #FCE7F3;
+      --purple-bg: #EDE9FE;
+      --font-size-small: 0.75rem;
+      --letter-spacing: 0.12em;
+      --font-weight-medium: 500;
+      --font-weight-bold: 600;
+      --background-circle-size: 448px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #ffffff 0%, #e8f0ff 40%, #c3d7ff 100%);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    .background-circle {
+      position: absolute;
+      width: var(--background-circle-size);
+      height: var(--background-circle-size);
+      border-radius: 50%;
+      opacity: 0.25;
+      background: radial-gradient(circle at center, var(--pink-bg), transparent);
+      top: -120px;
+      left: -120px;
+      z-index: 0;
+    }
+
+    .game-container {
+      position: relative;
+      z-index: 10;
+      background: #fff;
+      border-radius: 0.75rem;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      padding: clamp(1rem, 5vw, 2rem);
+      max-width: 90vw;
+      text-align: center;
+      border: 2px solid var(--gray-dark);
+    }
+
+    h1 {
+      font-size: clamp(1.5rem, 5vw, 2rem);
+      font-weight: var(--font-weight-bold);
+      color: var(--gray-dark);
+      margin-bottom: 1rem;
+    }
+
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: clamp(1rem, 5vw, 2rem);
+      margin-bottom: 1rem;
+      font-size: clamp(0.875rem, 3vw, 1rem);
+      color: var(--gray-dark);
+      font-weight: var(--font-weight-medium);
+    }
+
+    .typing-area {
+      margin: 0 auto;
+      max-width: 500px;
+    }
+
+    .typing-area p {
+      font-size: clamp(1rem, 3vw, 1.25rem);
+      color: var(--gray-dark);
+      margin-bottom: 1rem;
+      word-wrap: break-word;
+    }
+
+    .typing-area input {
+      width: 100%;
+      padding: 0.75rem;
+      font-size: clamp(0.875rem, 3vw, 1rem);
+      border: 2px solid var(--gray-dark);
+      border-radius: 0.5rem;
+      outline: none;
+      transition: border-color 0.3s ease;
+    }
+
+    .typing-area input:focus {
+      border-color: var(--green);
+    }
+
+    .controls {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: center;
+      gap: clamp(0.5rem, 3vw, 1rem);
+    }
+
+    button {
+      background: var(--gray-dark);
+      color: var(--pink-bg);
+      border: none;
+      padding: 0.75rem 1.5rem;
+      font-size: var(--font-size-small);
+      font-weight: var(--font-weight-medium);
+      letter-spacing: var(--letter-spacing);
+      cursor: pointer;
+      border-radius: 0.5rem;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    button:hover {
+      background: var(--green);
+      transform: translateY(-2px);
+    }
+
+    .win-message {
+      margin-top: 1rem;
+      font-size: clamp(0.875rem, 3vw, 1rem);
+      color: var(--green);
+      font-weight: var(--font-weight-bold);
+      display: none;
+    }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 5;
+      pointer-events: none;
+    }
+
+    @media (max-width: 480px) {
+      .typing-area p {
+        font-size: clamp(0.875rem, 2.5vw, 1rem);
+      }
+
+      .typing-area input {
+        font-size: clamp(0.75rem, 2.5vw, 0.875rem);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="background-circle"></div>
+  <div class="game-container" role="region" aria-label="Typing Speed Test">
+    <h1>Typing Speed Test</h1>
+    <div class="stats">
+      <span>WPM: <span id="wpm">0</span></span>
+      <span>Accuracy: <span id="accuracy">0%</span></span>
+      <span>Time: <span id="timer">30s</span></span>
+    </div>
+    <div class="typing-area">
+      <p id="phrase">Type this phrase to start the test!</p>
+      <input id="input" type="text" aria-label="Type the phrase" autocomplete="off">
+    </div>
+    <div class="controls">
+      <button onclick="startGame()">Start</button>
+      <button onclick="window.location.href='index.html'">Back to Portfolio</button>
+    </div>
+    <div class="win-message" id="winMessage"></div>
+    <canvas id="confetti"></canvas>
+  </div>
+  <script>
+    const phrases = [
+      'UI/UX Designer creating seamless experiences',
+      'Crafting elegant and intuitive interfaces',
+      'Transforming ideas into digital solutions',
+      'Building user-centered designs with passion',
+      'Innovating through design and technology'
+    ];
+    const input = document.getElementById('input');
+    const phraseDisplay = document.getElementById('phrase');
+    const wpmDisplay = document.getElementById('wpm');
+    const accuracyDisplay = document.getElementById('accuracy');
+    const timerDisplay = document.getElementById('timer');
+    const winMessage = document.getElementById('winMessage');
+    let currentPhrase = '';
+    let timeLeft = 30;
+    let timerInterval;
+    let totalWords = 0;
+    let correctWords = 0;
+    let gameActive = false;
+
+    function startGame() {
+      if (!gameActive) {
+        gameActive = true;
+        timeLeft = 30;
+        totalWords = 0;
+        correctWords = 0;
+        wpmDisplay.textContent = '0';
+        accuracyDisplay.textContent = '0%';
+        timerDisplay.textContent = `${timeLeft}s`;
+        winMessage.style.display = 'none';
+        input.value = '';
+        input.disabled = false;
+        input.focus();
+        currentPhrase = phrases[Math.floor(Math.random() * phrases.length)];
+        phraseDisplay.textContent = currentPhrase;
+        clearInterval(timerInterval);
+        timerInterval = setInterval(updateTimer, 1000);
+      }
+    }
+
+    function updateTimer() {
+      timeLeft--;
+      timerDisplay.textContent = `${timeLeft}s`;
+      if (timeLeft <= 0) {
+        clearInterval(timerInterval);
+        gameActive = false;
+        input.disabled = true;
+        const wpm = Math.round((correctWords / 30) * 60);
+        const accuracy = totalWords ? Math.round((correctWords / totalWords) * 100) : 0;
+        winMessage.textContent = `Test Complete! WPM: ${wpm}, Accuracy: ${accuracy}%`;
+        winMessage.style.display = 'block';
+        confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
+      }
+    }
+
+    input.addEventListener('input', () => {
+      if (gameActive) {
+        const typed = input.value.trim();
+        if (typed === currentPhrase) {
+          correctWords += currentPhrase.split(' ').length;
+          totalWords += currentPhrase.split(' ').length;
+          currentPhrase = phrases[Math.floor(Math.random() * phrases.length)];
+          phraseDisplay.textContent = currentPhrase;
+          input.value = '';
+          updateStats();
+        }
+      }
+    });
+
+    input.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter' && gameActive) {
+        const typed = input.value.trim();
+        totalWords += currentPhrase.split(' ').length;
+        if (typed === currentPhrase) {
+          correctWords += currentPhrase.split(' ').length;
+        }
+        currentPhrase = phrases[Math.floor(Math.random() * phrases.length)];
+        phraseDisplay.textContent = currentPhrase;
+        input.value = '';
+        updateStats();
+      }
+    });
+
+    function updateStats() {
+      const wpm = timeLeft < 30 ? Math.round((correctWords / (30 - timeLeft)) * 60) : 0;
+      const accuracy = totalWords ? Math.round((correctWords / totalWords) * 100) : 0;
+      wpmDisplay.textContent = wpm;
+      accuracyDisplay.textContent = `${accuracy}%`;
+    }
+
+    startGame();
+  </script>
+</body>
+</html>

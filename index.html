@@ -2,508 +2,1118 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="theme-color" content="#317EFB" />
-    <meta name="description" content="Vishal's Portfolio - Web Developer" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>UX/UI Designer</title>
-    <link rel="stylesheet" href="./side_pannel.css" />
-    <link rel="stylesheet" href="./philosophy.css" />
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="./cardpopup.css" />
-    <link rel="stylesheet" href="./game.css" />
-    <link rel="stylesheet" href="./chatbot.css" />
-    <!-- <link rel="stylesheet" href="./pointer.css" /> -->
-    <!-- <link rel="stylesheet" href="Philosophy.css"> -->
+    <title>Vishal Prajapati - Portfolio</title>
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
-    <link
-      rel="shortcut icon"
-      id="favicon"
-      href="./fav.png"
-      type="image/x-icon"
-    />
-    <style>
-      .arrow-container {
-        display: flex;
-        align-items: center;
-      }
-      .fa-solid.fa-arrow-left-long {
-        font-size: 14px;
-        margin-right: 10px;
-        /* color: #babab5;  */
-        animation: bounceLeft 1s infinite;
-      }
-      @keyframes bounceLeft {
-        0%,
-        100% {
-          transform: translateX(0);
-        }
-        50% {
-          transform: translateX(-10px);
-        }
-      }
-      .hide {
-        display: none;
-      }
-      @media (max-width: 772px) {
-        .fa-solid.fa-arrow-left-long {
-          display: none;
-        }
-      }
-      #scrollIcon {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        z-index: 1000;
-        cursor: pointer;
-      }
-      #scrollIcon i {
-        font-size: 24px;
-        transition: opacity 0.3s ease;
-        display: none;
-      }
-      #scrollIcon i.active {
-        display: inline-block;
-      }
-    </style>
+    <link rel="stylesheet" href="./styles/main.css" />
+    <link rel="stylesheet" href="./styles/chatbot.css" />
+    <link rel="stylesheet" href="./styles/bubble.css" />
+    <link rel="stylesheet" href="./styles/hamburger.css" />
+    <link rel="stylesheet" href="./styles/switch_toogle.css" />
+    <link rel="stylesheet" href="./styles/switch_toogle_dark.css" />
   </head>
+
   <body>
-    <header>
-      <div class="container">
-        <h2 style="color: #3fe84a">vishal</h2>
-        <div class="buttons">
-          <button id="gameTrigger" class="play-btn">
-            <span class="controller-icon"></span> Let's Play
+    <div class="page-container">
+      <!-- Hero Section -->
+      <section class="hero-section">
+        <!-- Header navigation -->
+        <header>
+          <div class="logo">
+            <div class="logo-icon">V</div>
+            <span class="logo-text">vishu.</span>
+          </div>
+          <nav class="nav" id="navMenu">
+            <a href="#services">Skills & Techs</a>
+            <a href="#portfolio">Projects</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact Me</a>
+          </nav>
+          <a href="assets/Vishal_Prajapati_CV.pdf" class="download-btn">
+            <span>Download CV</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              viewBox="0 0 24 24"
+            >
+              <path d="M12 5v14M19 12l-7 7-7-7" />
+            </svg>
+          </a>
+
+          <!-- From Uiverse.io by anand_4957 -->
+
+          <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
           </button>
-          <a
-            href="./Vishal_Prajapati_Resume.pdf"
-            target="_blank"
-            class="linkedin-btn"
-            >Resume</a
-          >
-          <a
-            href="https://www.linkedin.com/in/vishalprj"
-            target="_blank"
-            class="linkedin-btn"
-            >LinkedIn</a
-          >
-          <a
-            href="mailto:thevishuarijitian@gmail.com"
-            target="_blank"
-            class="email-btn"
-            >Email</a
-          >
+        </header>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+          <nav>
+            <a href="#services">Skills & Technologies</a>
+            <a href="#portfolio">Projects</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact Me</a>
+            <a
+              href="assets/Vishal_Prajapati_CV.pdf"
+              class="mobile-download-btn"
+            >
+              <span>Download CV</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                viewBox="0 0 24 24"
+              >
+                <path d="M12 5v14M19 12l-7 7-7-7" />
+              </svg>
+            </a>
+          </nav>
+        </div>
+
+        <div class="bubble-container">
+          <div class="main-bubble" id="mainBubble">
+            <i class="fas fa-gamepad" style="font-size: 25px"></i>
+          </div>
+          <div class="game-buttons" id="gameButtons"></div>
+        </div>
+
+        <!-- Hero content -->
+        <div class="hero-content">
+          <div class="portrait-container">
+            <div class="portrait-image">
+              <img src="assets\images\profile.jpg" alt="img" class="portrait" />
+            </div>
+          </div>
+
+          <!-- Name and profession -->
+          <h1 class="name" aria-hidden="true">
+            <span
+              style="
+                color: #000000;
+                background-color: #0edca9d4;
+                padding: 0px 15px 0px 20px;
+                /* border-right: 1px solid #000000; */
+                border-right: 8px solid #000000;
+              "
+              >UX</span
+            >
+            UI Designer<span style="color: #bababa">r</span>
+          </h1>
+          <p class="title">Vishal Prajapati</p>
+
+          <!-- Social icons vertical on left side for md+ screens -->
+          <aside class="social-icons">
+            <ul class="example-2">
+              <li class="icon-content">
+                <a
+                  href="https://linkedin.com/in/vishalprj"
+                  aria-label="LinkedIn"
+                  data-social="linkedin"
+                >
+                  <div class="filled"></div>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-linkedin"
+                    viewBox="0 0 16 16"
+                    xml:space="preserve"
+                  >
+                    <path
+                      d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"
+                      fill="currentColor"
+                    ></path>
+                  </svg>
+                </a>
+                <div class="tooltip">LinkedIn</div>
+              </li>
+              <li class="icon-content">
+                <a
+                  href="https://instagram.com/vishu.arijitian"
+                  aria-label="Instagram"
+                  data-social="instagram"
+                >
+                  <div class="filled"></div>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-instagram"
+                    viewBox="0 0 16 16"
+                    xml:space="preserve"
+                  >
+                    <path
+                      d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"
+                      fill="currentColor"
+                    ></path>
+                  </svg>
+                </a>
+                <div class="tooltip">Instagram</div>
+              </li>
+              <li class="icon-content">
+                <a
+                  href="mailto:vishuscripts@gmail.com"
+                  aria-label="Gmail"
+                  data-social="gmail"
+                >
+                  <div class="filled"></div>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                    />
+                    <polyline points="22,6 12,13 2,6" />
+                  </svg>
+                </a>
+                <div class="tooltip">Gmail</div>
+              </li>
+            </ul>
+          </aside>
+        </div>
+
+        <!-- Client logos bar -->
+        <div class="clients">
+          <span class="client">
+            <svg
+              class="client-icon"
+              fill="currentColor"
+              aria-hidden="true"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M21 6.5a2.5 2.5 0 00-2.5-2.5h-13A2.5 2.5 0 003 6.5v11a2.5 2.5 0 002.5 2.5h13a2.5 2.5 0 002.5-2.5v-11zM7 15H5v-2h2v2zm0-4H5v-2h2v2zm4 4h-2v-2h2v2zm0-4h-2v-2h2v2zm4 4h-2v-2h2v2zm0-4h-2v-2h2v2z"
+              />
+            </svg>
+            <span>@Coforge</span>
+          </span>
+        </div>
+      </section>
+
+      <!-- Toggle Section - Left -->
+      <div class="toggle-section">
+        <div class="custom-toggle">
+          <input type="checkbox" id="c3d" />
+          <label for="c3d"></label>
         </div>
       </div>
-    </header>
 
-    <main>
-      <div class="profile-section">
-        <div class="profile-image">
-          <div class="avatar-circle">
+      <!-- About Section -->
+      <section class="about-section" id="about">
+        <!-- Background elements -->
+        <div class="about-gradient-1"></div>
+        <div class="about-gradient-2"></div>
+        <div class="about-shape bottom-right"></div>
+        <div class="about-shape bottom-left"></div>
+
+        <div class="about-content">
+          <div class="about-text-content">
+            <div class="about-header">
+              <div class="section-title">About Me</div>
+              <h2 class="about-title">
+                Crafting digital experiences with purpose and precision
+              </h2>
+            </div>
+
+            <p class="about-text">
+              I'm <span class="about-highlight">Vishal Prajapati</span>, a UI/UX
+              and Product Designer with over 5 years of experience creating
+              intuitive and beautiful digital products. My approach combines
+              aesthetic sensibility with user-centered design principles.
+            </p>
+
+            <p class="about-text">
+              I believe design should solve real problems while creating
+              emotional connections. My work spans from early-stage startups to
+              Fortune 500 companies, always focused on delivering
+              <span class="about-highlight">measurable results</span> through
+              thoughtful design.
+            </p>
+
+            <div class="stats-container">
+              <div class="stat-item">
+                <span class="stat-number">50+</span>
+                <span class="stat-label">Projects Completed</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">12</span>
+                <span class="stat-label">Industry Awards</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">100%</span>
+                <span class="stat-label">Client Satisfaction</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">5</span>
+                <span class="stat-label">Years Experience</span>
+              </div>
+            </div>
+
+            <div class="skills-container">
+              <h3 class="skills-title">Core Skills</h3>
+              <div class="skills-list">
+                <span class="skill-tag">User Research</span>
+                <span class="skill-tag">Wireframing</span>
+                <span class="skill-tag">Prototyping</span>
+                <span class="skill-tag">UI Design</span>
+                <span class="skill-tag">UX Strategy</span>
+                <span class="skill-tag">Design Systems</span>
+                <span class="skill-tag">Figma</span>
+                <span class="skill-tag">User Testing</span>
+              </div>
+            </div>
+          </div>
+          <div class="about-image-container">
             <img
-              src="./Profile.jpg"
-              oncontextmenu="return false;"
-              style="pointer-events: none"
-              alt="Profile Image"
+              src="assets/images/AboutMe.jpg"
+              alt="Designer working on digital interface"
+              class="about-image"
             />
           </div>
-          <br />
-
-          <span class="hero-heading1" style="color: #3fe84a">UI/UX</span> <br />
-          <span class="hero-heading2" style="color: #3fe84a">Designer</span>
         </div>
-        <div class="profile-content">
-          <br />
-          <h1>Hi, I'm Vishal . . .</h1>
-          <br />
-          <p>
-            Hello! I'm Vishal Prajapati, a passionate UI/UX designer with a
-            flair for creating stunning and user-centric digital experiences.
-            With a keen eye for detail and a knack for understanding user
-            behavior, I bring ideas to life through captivating designs that
-            bridge the gap between aesthetics and functionality.
-          </p>
-          <div class="profile-buttons">
-            <button
-              class="get-connect-btn"
-              onclick="hideArrow()"
-              popovertarget="get-more-btn"
-            >
-              Let's Connect
-            </button>
-            <button
-              class="learn-more-btn"
-              onclick="hideArrow()"
-              popovertarget="learn-more-btn"
-            >
-              About me
-            </button>
-            <div class="arrow-container">
-              <i class="fa-solid fa-arrow-left-long" id="leftArrow"></i>
+      </section>
+      <br />
+      <!-- Compact Skills Section -->
+      <section class="skills-section" id="services">
+        <div class="skills-gradient-1"></div>
+        <div class="skills-gradient-2"></div>
+
+        <div class="skills-header">
+          <div class="skills-subtitle">My Expertise</div>
+          <h2 class="skills-title">Skills & Technologies</h2>
+        </div>
+
+        <div class="skills-grid">
+          <!-- Frontend Development -->
+          <div class="skill-category">
+            <h3 class="category-title">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+              </svg>
+              Frontend Development
+            </h3>
+            <div class="skill-item">
+              <svg
+                class="skill-icon"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M21 2H3v20h18V2z"></path>
+                <path d="M3 7h18M7 16h10M7 12h10"></path>
+              </svg>
+              <span class="skill-name">HTML5 & CSS3</span>
+              <span class="skill-level">Expert</span>
+            </div>
+            <div class="skill-item">
+              <svg
+                class="skill-icon"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"
+                ></path>
+                <path d="M8.5 8.5v.01"></path>
+                <path d="M16 15.5v.01"></path>
+                <path d="M12 12v.01"></path>
+              </svg>
+              <span class="skill-name">JavaScript (ES6+)</span>
+              <span class="skill-level">Advanced</span>
+            </div>
+            <div class="skill-item">
+              <svg
+                class="skill-icon"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"
+                ></path>
+                <path d="M8.5 8.5v.01"></path>
+                <path d="M16 15.5v.01"></path>
+                <path d="M12 12v.01"></path>
+              </svg>
+              <span class="skill-name">Tailwind CSS</span>
+              <span class="skill-level">Expert</span>
+            </div>
+            <div class="skill-item">
+              <svg
+                class="skill-icon"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+              </svg>
+              <span class="skill-name">Responsive Design</span>
+              <span class="skill-level">Expert</span>
+            </div>
+          </div>
+
+          <!-- UI/UX Design -->
+          <div class="skill-category">
+            <h3 class="category-title">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                <circle cx="8.5" cy="7.5" r="1.5"></circle>
+                <circle cx="15.5" cy="7.5" r="1.5"></circle>
+                <path d="M8 14h8"></path>
+              </svg>
+              UI/UX Design
+            </h3>
+            <div class="skill-item">
+              <svg
+                class="skill-icon"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                <circle cx="15.5" cy="8.5" r="1.5"></circle>
+                <path d="M21 15l-3.5-3.5-3.5 3.5-5-5L3 15"></path>
+              </svg>
+              <span class="skill-name">Figma</span>
+              <span class="skill-level">Expert</span>
+            </div>
+            <div class="skill-item">
+              <svg
+                class="skill-icon"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                <path d="M20.4 14.5L16 10l-4 4-4-4-4.4 4.5"></path>
+              </svg>
+              <span class="skill-name">Canva</span>
+              <span class="skill-level">Advanced</span>
+            </div>
+            <div class="skill-item">
+              <svg
+                class="skill-icon"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+              <span class="skill-name">User Research</span>
+              <span class="skill-level">Advanced</span>
+            </div>
+            <div class="skill-item">
+              <svg
+                class="skill-icon"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polyline points="4 17 10 11 4 5"></polyline>
+                <line x1="12" y1="19" x2="20" y2="19"></line>
+              </svg>
+              <span class="skill-name">User Flows</span>
+              <span class="skill-level">Advanced</span>
+            </div>
+          </div>
+
+          <!-- Tools & Languages -->
+          <div class="skill-category">
+            <h3 class="category-title">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                ></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+              </svg>
+              Tools & Languages
+            </h3>
+            <div class="skill-item">
+              <svg
+                class="skill-icon"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+              </svg>
+              <span class="skill-name">Git & GitHub</span>
+              <span class="skill-level">Advanced</span>
+            </div>
+            <div class="skill-item">
+              <svg
+                class="skill-icon"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"
+                ></path>
+                <polyline points="13 2 13 9 20 9"></polyline>
+              </svg>
+              <span class="skill-name">VS Code</span>
+              <span class="skill-level">Expert</span>
+            </div>
+            <div class="skill-item">
+              <svg
+                class="skill-icon"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"
+                ></path>
+                <path d="M8.5 8.5v.01"></path>
+                <path d="M16 15.5v.01"></path>
+                <path d="M12 12v.01"></path>
+              </svg>
+              <span class="skill-name">Python</span>
+              <span class="skill-level">Intermediate</span>
+            </div>
+            <div class="skill-item">
+              <svg
+                class="skill-icon"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M16 18a4 4 0 0 1-8 0V6a4 4 0 0 1 8 0v12z"></path>
+                <line x1="12" y1="2" x2="12" y2="4"></line>
+                <line x1="12" y1="20" x2="12" y2="22"></line>
+              </svg>
+              <span class="skill-name">C Language</span>
+              <span class="skill-level">Intermediate</span>
             </div>
           </div>
         </div>
-      </div>
-    </main>
+      </section>
 
-    <!-- Popover sections -->
-    <section class="about-section-pop" id="learn-more-btn" popover>
-      <div class="container-pop">
-        <div class="scroll-frame">
-          <div class="about-content-pop">
-            <h2>About Vishal Prajapati</h2>
-            <p>
-              I am a passionate BCA student, aspiring to make a positive impact
-              through my technical skills and creativity. With a solid
-              foundation in web development, including HTML, CSS, and
-              JavaScript, I have honed my expertise through certifications and
-              participation in various competitions.
-            </p>
-            <p>
-              My technical toolkit also includes Tailwind CSS, Figma for web
-              design, and Adobe Photoshop, enabling me to create visually
-              appealing and functional designs.
-            </p>
-            <p>
-              I am constantly seeking opportunities to grow and innovate,
-              blending my technical knowledge with strong soft skills like
-              communication, collaboration, and adaptability. Beyond academics,
-              I am actively involved in co-curricular activities, including
-              coding competitions, UX/UI design, and photography.
-            </p>
-            <p>
-              When I'm not coding or designing, you can find me drawing,
-              singing, or exploring new ways to express my creativity.
-            </p>
-            <p>
-              Explore my projects, certifications, and more to see how I turn
-              ideas into reality.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
+      <!-- Luxury Projects Section -->
+      <section class="projects-section" id="portfolio">
+        <div class="projects-gradient-1"></div>
+        <div class="projects-gradient-2"></div>
+        <div class="corner-decoration corner-top-left"></div>
+        <div class="corner-decoration corner-bottom-right"></div>
 
-    <section class="center-conatainer">
-      <div class="contact-form" id="get-more-btn" popover>
-        <span class="heading" style="color: #59e762">Let's Connect</span>
-        <form action="https://formcarry.com/s/1WZXuiIc74v" method="POST">
-          <label for="name">Name:</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            placeholder="Your Name"
-            required
-          />
-          <label for="email">Email:</label>
-          <input
-            type="email"
-            id="email"
-            placeholder="Your E-mail"
-            name="email"
-            required
-          />
-          <label for="subject">Subject:</label>
-          <input
-            type="text"
-            id="subject"
-            name="subject"
-            placeholder="Subject"
-            required
-          />
-          <label for="message">Message:</label>
-          <textarea
-            id="message"
-            name="message"
-            placeholder="Write Message..."
-            required
-          ></textarea>
-          <button type="submit">Submit</button>
-        </form>
-      </div>
-    </section>
-    <br /><br /><br /><br /><br /><br />
-    <br />
-
-    <!-- Your existing skills section -->
-    <section>
-      <h1 class="section-title">Skills</h1>
-      <div class="skills-container">
-        <div class="skill-card" onclick="showSkillPopup('UX Research')">
-          <div class="icon-box">
-            <img src="uxResearch.png" alt="UX Research Icon" />
-          </div>
-          <div class="skill-title">UX Research</div>
+        <div class="projects-header">
+          <div class="projects-subtitle">Featured Works</div>
+          <h2 class="projects-title">My Projects</h2>
         </div>
 
-        <div class="skill-card" onclick="showSkillPopup('Wireframing')">
-          <div class="icon-box">
-            <img src="wireframing.png" alt="Wireframing Icon" />
-          </div>
-          <div class="skill-title">Wireframing</div>
-        </div>
-
-        <!-- Add onclick to all other skill cards similarly -->
-        <div class="skill-card" onclick="showSkillPopup('User Persona')">
-          <div class="icon-box">
-            <img src="userPersona.png" alt="User Persona Icon" />
-          </div>
-          <div class="skill-title">User Persona</div>
-        </div>
-
-        <div class="skill-card" onclick="showSkillPopup('Figma')">
-          <div class="icon-box">
-            <img src="figma.png" alt="Brand Identity Icon" />
-          </div>
-          <div class="skill-title">Figma</div>
-        </div>
-
-        <div class="skill-card" onclick="showSkillPopup('Collaboration')">
-          <div class="icon-box">
-            <img src="collaboration.png" alt="Accessibility Icon" />
-          </div>
-          <div class="skill-title">Collaboration</div>
-        </div>
-
-        <div class="skill-card" onclick="showSkillPopup('Prototyping')">
-          <div class="icon-box">
-            <img src="prototyping.png" alt="Collaboration Icon" />
-          </div>
-          <div class="skill-title">Prototyping</div>
-        </div>
-
-        <div class="skill-card" onclick="showSkillPopup('HTML')">
-          <div class="icon-box">
-            <img src="html.png" alt="Feedback Icon" />
-          </div>
-          <div class="skill-title">HTML</div>
-        </div>
-
-        <div class="skill-card" onclick="showSkillPopup('CSS')">
-          <div class="icon-box">
-            <img src="css.png" alt="Prototyping Icon" />
-          </div>
-          <div class="skill-title">CSS</div>
-        </div>
-
-        <div class="skill-card" onclick="showSkillPopup('JavaScript')">
-          <div class="icon-box">
-            <img src="js.png" alt="User Testing Icon" />
-          </div>
-          <div class="skill-title">JavaScript</div>
-        </div>
-
-        <div class="skill-card" onclick="showSkillPopup('C Language')">
-          <div class="icon-box">
-            <img src="C.png" alt="User Testing Icon" />
-          </div>
-          <div class="skill-title">C Language</div>
-        </div>
-
-        <div class="skill-card" onclick="showSkillPopup('Python')">
-          <div class="icon-box">
-            <img src="python.png" alt="User Testing Icon" />
-          </div>
-          <div class="skill-title">Python</div>
-        </div>
-
-        <div class="skill-card" onclick="showSkillPopup('XML')">
-          <div class="icon-box">
-            <img src="xml.png" alt="User Testing Icon" />
-          </div>
-          <div class="skill-title">XML</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Modal Popup -->
-    <div class="modal-overlay" id="skillModal">
-      <div class="modal-content">
-        <button class="close-modal" onclick="closeModal()">×</button>
-        <h2 id="modalSkillTitle"></h2>
-        <div class="skill-details" id="skillDetails">
-          <!-- Content will be inserted here by JavaScript -->
-        </div>
-      </div>
-    </div>
-
-    <!-- Projects section -->
-    <section class="portfolio-section">
-      <h2>Projects</h2>
-      <div class="portfolio-container">
-        <div class="portfolio-card">
-          <img src="PageVista.png" alt="PageVista img" />
-          <p>E-Book Web Application</p>
-        </div>
-        <!-- Other project cards... -->
-        <div class="portfolio-card">
-          <img src="tow.jpg" alt="Photorama" />
-          <p>Photorama</p>
-        </div>
-        <div class="portfolio-card">
-          <img src="three.jpg" alt="Sweden" />
-          <p>Sweden</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Articles section -->
-    <section class="articles-section">
-      <h1 class="section-title">Article Links</h1>
-
-      <div class="article-cards">
-        <!-- Card 1 -->
-        <div class="article-card">
-          <div class="card-content">
-            <h3>A Guide to Effective UX Design</h3>
-            <p>Digital experiences that resonate with users</p>
-          </div>
-          <button class="card-action" data-article="ux-design">
-            <span class="arrow-icon">→</span>
-          </button>
-        </div>
-
-        <!-- Card 2 -->
-        <div class="article-card">
-          <div class="card-content">
-            <h3>Color Psychology in UI Design</h3>
-            <p>Using colors to engage in user interfaces</p>
-          </div>
-          <button class="card-action" data-article="color-psychology">
-            <span class="arrow-icon">→</span>
-          </button>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="article-card">
-          <div class="card-content">
-            <h3>From Sketch to Prototype</h3>
-            <p>From designs into interactive views</p>
-          </div>
-          <button class="card-action" data-article="sketch-prototype">
-            <span class="arrow-icon">→</span>
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <!-- Article Panel -->
-    <div class="article-panel-overlay" id="panelOverlay"></div>
-    <aside class="article-panel" id="sidePanel">
-      <div class="panel-header">
-        <button class="close-panel" aria-label="Close panel">
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M6 18L18 6M6 6l12 12"
+        <div class="projects-grid">
+          <!-- Project 1 -->
+          <div class="project-card">
+            <img
+              src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+              alt="E-Book Website"
+              class="project-image"
             />
-          </svg>
-        </button>
-      </div>
-      <div class="panel-content" id="articleContent">
-        <!-- Dynamic content will be inserted here -->
-      </div>
-    </aside>
+            <div class="project-content">
+              <div class="project-emoji">📚</div>
+              <h3 class="project-name">E-Book Website (PageVista)</h3>
+              <p class="project-description">
+                A responsive and modern web platform for browsing and reading
+                eBooks with elegant design and smooth interactions.
+              </p>
+              <span class="project-role">Frontend Developer & UI Designer</span>
 
-    <br /><br /><br /><br />
+              <div class="project-tech-title">Technologies Used</div>
+              <div class="project-tech-list">
+                <span class="project-tech">HTML</span>
+                <span class="project-tech">CSS</span>
+                <span class="project-tech">JavaScript</span>
+                <span class="project-tech">Tailwind CSS</span>
+                <span class="project-tech">Figma</span>
+                <span class="project-tech">Git</span>
+              </div>
 
-    <!-- Philosophy section -->
-    <!-- <div class="container4">
-        <div class="content">
-            <h1>Philosophy</h1>
-            <p>I believe that design is more than just aesthetics—it's about crafting meaningful experiences. My design approach combines creativity with empathy, placing the user at the heart of every decision. Whether it's creating intuitive user interfaces or mapping out user journeys, I aim to design products that resonate with people and enhance their interactions.</p>
-            <a href="#" class="learn-more">Learn more</a>
+              <div class="project-features">
+                <div class="project-features-title">Key Features</div>
+                <ul class="project-features-list">
+                  <li class="project-feature">
+                    Beautiful book cards with hover effects
+                  </li>
+                  <li class="project-feature">
+                    Clean, minimalist layout design
+                  </li>
+                  <li class="project-feature">
+                    Fully responsive across all devices
+                  </li>
+                  <li class="project-feature">Optimized reading experience</li>
+                </ul>
+              </div>
+
+              <div class="project-actions">
+                <a href="#" class="project-button project-button-primary"
+                  >View Live</a
+                >
+                <a href="#" class="project-button project-button-secondary"
+                  >Case Study</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="project-card">
+            <img
+              src="https://images.unsplash.com/photo-1610563166150-b34df4f3bcd6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+              alt="Face Detection Tool"
+              class="project-image"
+            />
+            <div class="project-content">
+              <div class="project-emoji">🧑‍💻</div>
+              <h3 class="project-name">Face & Gender Detection Tool</h3>
+              <p class="project-description">
+                A computer vision application that detects faces and predicts
+                gender in real-time using webcam feed.
+              </p>
+              <span class="project-role">Developer</span>
+
+              <div class="project-tech-title">Technologies Used</div>
+              <div class="project-tech-list">
+                <span class="project-tech">Python</span>
+                <span class="project-tech">OpenCV</span>
+                <span class="project-tech">Machine Learning</span>
+                <span class="project-tech">Tkinter</span>
+                <span class="project-tech">VS Code</span>
+              </div>
+
+              <div class="project-features">
+                <div class="project-features-title">Key Features</div>
+                <ul class="project-features-list">
+                  <li class="project-feature">Real-time face detection</li>
+                  <li class="project-feature">Gender prediction algorithm</li>
+                  <li class="project-feature">Bounding box visualization</li>
+                  <li class="project-feature">Simple GUI interface</li>
+                </ul>
+              </div>
+
+              <div class="project-actions">
+                <a href="#" class="project-button project-button-primary"
+                  >Demo Video</a
+                >
+                <a href="#" class="project-button project-button-secondary"
+                  >GitHub</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <div class="project-card">
+            <img
+              src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+              alt="Portfolio Website"
+              class="project-image"
+            />
+            <div class="project-content">
+              <div class="project-emoji">🌐</div>
+              <h3 class="project-name">Personal Portfolio Website</h3>
+              <p class="project-description">
+                An elegant portfolio showcasing my skills, projects, and
+                professional journey with premium design aesthetics.
+              </p>
+              <span class="project-role">Designer & Developer</span>
+
+              <div class="project-tech-title">Technologies Used</div>
+              <div class="project-tech-list">
+                <span class="project-tech">HTML</span>
+                <span class="project-tech">CSS</span>
+                <span class="project-tech">JavaScript</span>
+                <span class="project-tech">Tailwind CSS</span>
+                <span class="project-tech">Figma</span>
+                <span class="project-tech">Git</span>
+              </div>
+
+              <div class="project-features">
+                <div class="project-features-title">Key Features</div>
+                <ul class="project-features-list">
+                  <li class="project-feature">Modern, minimalist design</li>
+                  <li class="project-feature">Fully responsive layout</li>
+                  <li class="project-feature">Interactive elements</li>
+                  <li class="project-feature">Downloadable resume</li>
+                </ul>
+              </div>
+
+              <div class="project-actions">
+                <a href="#" class="project-button project-button-primary"
+                  >View Live</a
+                >
+                <a href="#" class="project-button project-button-secondary"
+                  >Design Files</a
+                >
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="image-container">
-            <img src="./web.png" height="300px" alt="Character Image">
+      </section>
+
+      <!-- Luxury Contact Section -->
+      <section class="contact-section" id="contact">
+        <div class="contact-gradient-1"></div>
+        <div class="contact-gradient-2"></div>
+        <div class="corner-decoration corner-top-right"></div>
+        <div class="corner-decoration corner-bottom-left"></div>
+
+        <div class="contact-header">
+          <div class="contact-subtitle">Get In Touch</div>
+          <h2 class="contact-title">Contact Me</h2>
         </div>
-    </div> -->
-    <!-- Philosophy section -->
-    <div class="container4">
-      <div class="content">
-        <h1>Philosophy</h1>
-        <p>
-          I believe that design is more than just aesthetics—it's about crafting
-          meaningful experiences. My design approach combines creativity with
-          empathy, placing the user at the heart of every decision. Whether it's
-          creating intuitive user interfaces or mapping out user journeys, I aim
-          to design products that resonate with people and enhance their
-          interactions.
-        </p>
-        <button class="learn-more" id="philosophyBtn">Learn more</button>
-      </div>
-      <div class="image-container">
-        <img src="./web.png" height="300px" alt="Character Image" />
-      </div>
-    </div>
 
-    <!-- Philosophy Panel Overlay -->
-    <div class="panel-overlay" id="philosophyOverlay"></div>
-    <div class="philosophy-panel" id="philosophyPanel">
-      <button class="close-btn" id="closePhilosophy">&times;</button>
-      <div class="philosophy-content">
-        <h2>My Design Philosophy</h2>
-        <div class="philosophy-details">
-          <div class="philosophy-point">
-            <h3>User-Centered Approach</h3>
-            <p>
-              Every design decision begins with understanding the user's needs,
-              behaviors, and pain points. I employ research methods like user
-              interviews, surveys, and usability testing to ensure designs solve
-              real problems.
+        <div class="contact-content">
+          <div class="contact-info">
+            <p class="contact-message">
+              I'm currently available for freelance work, collaborations, or
+              just a friendly chat about design and technology. Feel free to
+              reach out through any of these channels.
             </p>
+
+            <div class="contact-options">
+              <!-- Email -->
+              <a
+                href="mailto:vishuscripts@gmail.com"
+                class="contact-option"
+                style="text-decoration: none"
+              >
+                <div class="contact-icon email-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                    ></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                </div>
+                <div class="contact-details">
+                  <div class="contact-platform">Email</div>
+                  <div class="contact-value">vishuscripts@gmail.com</div>
+                </div>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M5 12h14M12 5l7 7-7 7"></path>
+                </svg>
+              </a>
+
+              <!-- LinkedIn -->
+              <a
+                href="https://linkedin.com/in/vishalprj"
+                target="_blank"
+                class="contact-option"
+                style="text-decoration: none"
+              >
+                <div class="contact-icon linkedin-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                    ></path>
+                    <rect x="2" y="9" width="4" height="12"></rect>
+                    <circle cx="4" cy="4" r="2"></circle>
+                  </svg>
+                </div>
+                <div class="contact-details">
+                  <div class="contact-platform">LinkedIn</div>
+                  <div class="contact-value">linkedin.com/in/vishalprj</div>
+                </div>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M5 12h14M12 5l7 7-7 7"></path>
+                </svg>
+              </a>
+
+              <!-- Portfolio -->
+              <a
+                href="https://vishal2231179.github.io/MyPortfolio"
+                target="_blank"
+                class="contact-option"
+                style="text-decoration: none"
+              >
+                <div class="contact-icon github-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                    ></path>
+                  </svg>
+                </div>
+                <div class="contact-details">
+                  <div class="contact-platform">GitHub</div>
+                  <div class="contact-value">vishal2231179.github.io</div>
+                </div>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M5 12h14M12 5l7 7-7 7"></path>
+                </svg>
+              </a>
+
+              <!-- Instagram -->
+              <a
+                href="https://instagram.com/vishu.arijitian"
+                target="_blank"
+                class="contact-option"
+                style="text-decoration: none"
+              >
+                <div class="contact-icon instagram-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <rect
+                      x="2"
+                      y="2"
+                      width="20"
+                      height="20"
+                      rx="5"
+                      ry="5"
+                    ></rect>
+                    <path
+                      d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
+                    ></path>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                  </svg>
+                </div>
+                <div class="contact-details">
+                  <div class="contact-platform">Instagram</div>
+                  <div class="contact-value">@vishu.arijitian</div>
+                </div>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M5 12h14M12 5l7 7-7 7"></path>
+                </svg>
+              </a>
+
+              <!-- Twitter/X -->
+              <a
+                href="https://x.com/vishuarijitian"
+                target="_blank"
+                class="contact-option"
+                style="text-decoration: none"
+              >
+                <div class="contact-icon twitter-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"
+                    ></path>
+                  </svg>
+                </div>
+                <div class="contact-details">
+                  <div class="contact-platform">X (Twitter)</div>
+                  <div class="contact-value">@vishuarijitian</div>
+                </div>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M5 12h14M12 5l7 7-7 7"></path>
+                </svg>
+              </a>
+
+              <!-- Lyrics Website -->
+              <a
+                href="https://lyricslelo.online"
+                target="_blank"
+                class="contact-option"
+                style="text-decoration: none"
+              >
+                <div class="contact-icon blogger-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"
+                    ></path>
+                    <path d="M8.5 8.5v.01"></path>
+                    <path d="M16 15.5v.01"></path>
+                    <path d="M12 12v.01"></path>
+                    <path d="M11 17v.01"></path>
+                    <path d="M7 14v.01"></path>
+                  </svg>
+                </div>
+                <div class="contact-details">
+                  <div class="contact-platform">Lyrics Website</div>
+                  <div class="contact-value">lyricslelo.online</div>
+                </div>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M5 12h14M12 5l7 7-7 7"></path>
+                </svg>
+              </a>
+            </div>
           </div>
 
-          <div class="philosophy-point">
-            <h3>Empathy in Design</h3>
-            <p>
-              Design should serve people, not just business goals. I create
-              solutions that consider diverse perspectives and accessibility
-              needs, ensuring inclusive experiences for all users.
-            </p>
-          </div>
-
-          <div class="philosophy-point">
-            <h3>Form Follows Function</h3>
-            <p>
-              While aesthetics are important, they should never compromise
-              usability. I strike a balance between beautiful visuals and
-              intuitive interactions that guide users effortlessly.
-            </p>
-          </div>
-
-          <div class="philosophy-point">
-            <h3>Iterative Process</h3>
-            <p>
-              Great design evolves through continuous testing and refinement. I
-              embrace feedback loops and data-driven decisions to progressively
-              enhance the user experience.
-            </p>
-          </div>
-
-          <div class="philosophy-point">
-            <h3>Holistic Thinking</h3>
-            <p>
-              I consider the entire ecosystem of a product—from the first
-              touchpoint to ongoing engagement—creating cohesive experiences
-              across all channels and platforms.
-            </p>
+          <div class="contact-form">
+            <h3 class="form-title">Send Me a Message</h3>
+            <form
+              action="https://formcarry.com/s/xfvtOWcjdDV"
+              method="POST"
+              enctype="multipart/form-data"
+            >
+              <div class="form-group">
+                <label for="name" class="form-label">Your Name</label>
+                <input
+                  type="text"
+                  name="name"
+                  class="form-input"
+                  placeholder="Enter your name"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="email" class="form-label">Email Address</label>
+                <input
+                  type="email"
+                  name="email"
+                  class="form-input"
+                  placeholder="Enter your email"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="subject" class="form-label">Subject</label>
+                <input
+                  type="text"
+                  name="subject"
+                  class="form-input"
+                  placeholder="What's this about?"
+                />
+              </div>
+              <div class="form-group">
+                <label for="message" class="form-label">Message</label>
+                <textarea
+                  name="message"
+                  class="form-input"
+                  placeholder="Type your message here..."
+                  required
+                ></textarea>
+              </div>
+              <button type="submit" class="submit-button">Send Message</button>
+            </form>
           </div>
         </div>
-      </div>
-      <br />
+      </section>
     </div>
 
     <!-- Floating chat bubble -->
@@ -513,7 +1123,6 @@
         alt="Chat icon"
       />
     </button>
-
     <!-- Overlay -->
     <div class="chat-overlay" id="chatOverlay"></div>
 
@@ -526,7 +1135,7 @@
         </div>
         <div class="iframe-container">
           <iframe
-            src="https://www.chatbase.co/chatbot-iframe/hhn_s_bK69Q4Fa488db6u"
+            src="https://www.chatbase.co/chatbot-iframe/pcdciyHGXizsDa3WUfK3E"
             allow="microphone"
             title="Chatbot interface"
           ></iframe>
@@ -534,241 +1143,224 @@
       </div>
     </div>
 
-    <!-- Collaboration section -->
-    <div class="collaborate-section">
-      <h2>Let's Collaborate</h2>
-      <div class="collaborate-container">
-        <div class="collaborate-item">
-          <a href="mailto:thevishuarijitian@gmail.com" target="_blank">
-            <div class="icon"><i class="fas fa-envelope"></i></div>
-            <span>Email</span>
-          </a>
-        </div>
-        <!-- Other collaboration items... -->
-        <div class="collaborate-item">
-          <a href="https://www.linkedin.com/in/vishalprj" target="_blank">
-            <div class="icon">
-              <i class="fab fa-linkedin"></i>
-            </div>
-            <span>LinkedIn</span>
-          </a>
-        </div>
-        <div class="collaborate-item">
-          <a href="https://github.com/vishal2231179" target="_blank">
-            <div class="icon">
-              <i class="fa-brands fa-github"></i>
-            </div>
-            <span>GitHub</span>
-          </a>
-        </div>
-        <div class="collaborate-item">
-          <a href="https://www.instagram.com/vishu.arijitian" target="_blank">
-            <div class="icon">
-              <i class="fa-brands fa-instagram"></i>
-            </div>
-            <span>Instagram</span>
-          </a>
-        </div>
-        <div class="collaborate-item">
-          <a href="https://x.com/vishuarijitian" target="_blank">
-            <div class="icon">
-              <i class="fa-brands fa-x-twitter"></i>
-            </div>
-            <span>X-Twitter</span>
-          </a>
-        </div>
-        <div class="collaborate-item">
-          <a href="https://www.lyricslelo.online" target="_blank">
-            <div class="icon">
-              <i class="fa-brands fa-blogger"></i>
-            </div>
-            <span>Blogger</span>
-          </a>
-        </div>
-      </div>
-    </div>
+    <!-- Luxury Footer -->
+    <footer class="luxury-footer">
+      <div class="footer-gradient gradient-1"></div>
+      <div class="footer-gradient gradient-2"></div>
+      <div class="footer-decoration decoration-1"></div>
+      <div class="footer-decoration decoration-2"></div>
 
-    <!-- Scroll icon -->
-    <div id="scrollIcon">
-      <i
-        id="scrollDown"
-        class="fa-solid fa-angles-down active"
-        style="color: #3fe84a"
-      ></i>
-      <i id="scrollUp" class="fa-solid fa-angles-up" style="color: #3fe84a"></i>
-    </div>
-
-    <!-- Background -->
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <div id="name3d"></div>
-
-    <script>
-      // Scene setup
-      const scene = new THREE.Scene();
-      const camera = new THREE.PerspectiveCamera(
-        75,
-        window.innerWidth / window.innerHeight,
-        0.1,
-        1000
-      );
-      const renderer = new THREE.WebGLRenderer({ alpha: true });
-      renderer.setSize(window.innerWidth, window.innerHeight);
-      document.getElementById("name3d").appendChild(renderer.domElement);
-
-      // Create your name
-      const loader = new THREE.FontLoader();
-      loader.load(
-        "https://threejs.org/examples/fonts/helvetiker_regular.typeface.json",
-        function (font) {
-          const geometry = new THREE.TextGeometry("VISHAL", {
-            font: font,
-            size: 1,
-            height: 0.2,
-            curveSegments: 12,
-            bevelEnabled: true,
-          });
-
-          const material = new THREE.MeshPhongMaterial({
-            color: 0xffcc00,
-            specular: 0x111111,
-            shininess: 30,
-          });
-
-          const nameMesh = new THREE.Mesh(geometry, material);
-          scene.add(nameMesh);
-
-          // Add lights
-          const light1 = new THREE.PointLight(242200, 1.5, 40);
-          light1.position.set(10, 10, 10);
-          scene.add(light1);
-
-          const light2 = new THREE.PointLight(1111, 1.5, 40);
-          light2.position.set(-10, -10, -10);
-          scene.add(light2);
-
-          camera.position.z = 5;
-
-          // Animation
-          function animate() {
-            requestAnimationFrame(animate);
-            nameMesh.rotation.x += 0.005;
-            nameMesh.rotation.y += 0.001;
-            renderer.render(scene, camera);
-          }
-          animate();
-        }
-      );
-
-      // Responsive
-      window.addEventListener("resize", () => {
-        camera.aspect = window.innerWidth / window.innerHeight;
-        camera.updateProjectionMatrix();
-        renderer.setSize(window.innerWidth, window.innerHeight);
-      });
-    </script>
-
-    <style>
-      #name3d {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-        opacity: 0.15;
-      }
-    </style>
-
-    <!-- Background -->
-    <!-- <svg class="neurons" viewBox="0 0 100 100" preserveAspectRatio="none">
-  <path class="neuron-path" d="M10,50 Q25,10 40,50 T70,50 T90,30" />
-</svg>
-
-<style>
-.neurons {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-}
-
-.neuron-path {
-  stroke: rgba(255, 204, 0, 0.363);
-  stroke-width: 0.3;
-  fill: none;
-  stroke-dasharray: 5, 5;
-  animation: pulse 4s ease-in-out infinite alternate;
-}
-
-@keyframes pulse {
-  0% { stroke-dashoffset: 0; opacity: 0.3; }
-  100% { stroke-dashoffset: 40; opacity: 0.7; }
-}
-
-body {
-  background: #000000;
-}
-</style> -->
-    <!-- Background -->
-    <div id="gameModal" class="game-modal">
-      <div class="game-content">
-        <div class="game-header">
-          <h3>Skill Collector Game</h3>
-          <div class="game-controls">
-            <button id="pauseBtn">⏸</button>
-            <button id="closeB">✕</button>
+      <div class="footer-container">
+        <!-- Brand Column -->
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <div class="footer-logo-icon">V</div>
+            <span class="footer-logo-text">vishu</span>
+          </div>
+          <p class="footer-tagline">
+            Creating digital experiences that blend aesthetics with
+            functionality. Let's build something remarkable together.
+          </p>
+          <div class="footer-social">
+            <a
+              href="https://instagram.com/vishu.arijitian"
+              target="_blank"
+              class="social-link"
+              style="text-decoration: none"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path
+                  d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
+                ></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+            <a
+              href="https://linkedin.com/in/vishalprj"
+              target="_blank"
+              class="social-link"
+              style="text-decoration: none"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                ></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+            </a>
+            <a
+              href="mailto:vishuscripts@gmail.com"
+              class="social-link"
+              style="text-decoration: none"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                ></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+            </a>
+            <a
+              href="https://x.com/vishuarijitian"
+              target="_blank"
+              class="social-link"
+              style="text-decoration: none"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"
+                ></path>
+              </svg>
+            </a>
           </div>
         </div>
 
-        <div class="instructions">
-          <p>
-            <i class="fa-solid fa-arrow-left"></i>
-            <i class="fa-solid fa-arrow-right"></i> Arrow Keys to Move | Collect
-            <span class="green">Skills</span> |
-            <span id="timerDisplay">60s</span>
-          </p>
+        <!-- Links Column -->
+        <div class="footer-links">
+          <div>
+            <h4 class="links-title">Navigation</h4>
+            <ul class="footer-nav">
+              <li><a href="#hero">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#services">Skills & Technologies</a></li>
+              <li><a href="#portfolio">Projects</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="links-title">Services</h4>
+            <ul class="footer-nav">
+              <li><a href="#">UI/UX Design</a></li>
+              <li><a href="#">Web Development</a></li>
+              <li><a href="#">Product Design</a></li>
+              <li><a href="#">Branding</a></li>
+              <li><a href="#">Consulting</a></li>
+            </ul>
+          </div>
         </div>
 
-        <canvas id="gameCanvas"></canvas>
+       <!-- Newsletter Column -->
+<div class="footer-newsletter">
+  <h4 class="links-title">Stay Updated</h4>
+  <p class="newsletter-text">
+    Subscribe to my newsletter for design tips, project updates, and
+    exclusive content.
+  </p>
+  
+  <form class="newsletter-form" action="https://formspree.io/f/xrblrbpe" method="POST">
+    <input
+      type="email"
+      name="email"
+      class="newsletter-input"
+      placeholder="Your email address"
+      required
+    />
+    <button type="submit" class="newsletter-button">
+      Subscribe
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="18"
+        height="18"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M5 12h14M12 5l7 7-7 7"></path>
+      </svg>
+    </button>
+  </form>
+  <p class="newsletter-message" style="display:none; margin-top:10px; font-size:14px;"></p>
+</div>
 
-        <div class="mobile-controls">
-          <button id="mobileLeftBtn">
-            <i class="fa-solid fa-arrow-left"></i>
-          </button>
-          <button id="mobileRightBtn">
-            <i class="fa-solid fa-arrow-right"></i>
-          </button>
+<script>
+const form = document.querySelector(".newsletter-form");
+const message = document.querySelector(".newsletter-message");
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const formData = new FormData(form);
+
+  const response = await fetch(form.action, {
+    method: form.method,
+    body: formData,
+    headers: { Accept: "application/json" }
+  });
+
+  if (response.ok) {
+    message.style.display = "block";
+    message.style.color = "#4CAF50"; // green
+    message.textContent = "✅ Thank you for subscribing!";
+    form.reset();
+  } else {
+    message.style.display = "block";
+    message.style.color = "#f44336"; // red
+    message.textContent = "❌ Oops! There was a problem. Try again.";
+  }
+});
+</script>
+
+
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <div class="footer-copyright">
+          &copy; 2023 Vishal Prajapati. All rights reserved.
         </div>
-
-        <div class="game-footer">
-          <span id="scoreDisplay">Score: 0</span>
-          <button id="restartBtn">↻ Restart</button>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookies</a>
         </div>
-      </div>
-    </div>
-
-    <!-- Footer -->
-    <footer>
-      <div class="centered-container">
-        <h1 class="centered-name">VISHAL</h1>
-        <hr class="divider" />
-        <small class="left-aligned-text">VISHAL P.</small>
       </div>
     </footer>
-    <script src="./game.js"></script>
-    <script src="./side_pannel.js"></script>
-    <script src="./srollTopDown.js"></script>
-    <script src="./cardpopup.js"></script>
-    <script src="./chatbot.js"></script>
-
-    <script>
-      function hideArrow() {
-        document.getElementById("leftArrow").classList.add("hide");
-      }
-    </script>
+    <script src="./scripts/hamburger.js"></script>
+    <script src="./scripts/chatbot.js"></script>
+    <script src="./scripts/bubble.js"></script>
+    <script src="./scripts/switch_theme.js"></script>
+    <script src="./scripts/feedback.js"></script>
   </body>
 </html>
-

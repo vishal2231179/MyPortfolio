@@ -1,0 +1,284 @@
+/* ===== Dark Mode Variables ===== */
+:root {
+  /* Dark Theme Colors */
+  --dark-gray-dark: #e5e7eb;
+  /* Light gray for text */
+  --dark-gray-light: #6b7280;
+  /* Medium gray */
+  --dark-green: #4ade80;
+  /* Primary accent */
+  --dark-green-scribble: rgba(74, 222, 128, 0.4);
+  --dark-pink-bg: #1f2937;
+  --dark-purple-bg: #1e1b4b;
+  --dark-bg: #0f172a;
+  /* Background */
+  --dark-surface: #1e293b;
+  /* Cards/surfaces */
+  --dark-card: #1e293b;
+  --dark-text: #f8fafc;
+  /* Primary text */
+  --dark-border: #334155;
+  --dark-muted: #94a3b8;
+  /* Secondary text */
+}
+
+/* ===== Dark Mode Base Styles ===== */
+.dark-mode {
+  background-color: var(--dark-bg);
+  color: var(--dark-text);
+}
+
+.dark-mode body {
+  background-color: var(--dark-bg);
+  cursor: url('data:image/svg+xml;utf8,<svg width="32" height="32" xmlns="http://www.w3.org/2000/svg"><polygon points="2,2 30,16 18,18 16,30" fill="white" stroke="" stroke-width="2"/></svg>') 2 2, auto;
+}
+
+/* ===== Text Elements ===== */
+.dark-mode .logo-text,
+.dark-mode .name,
+.dark-mode .about-title,
+.dark-mode .skills-title,
+.dark-mode .projects-title,
+.dark-mode .contact-title,
+.dark-mode .project-name,
+.dark-mode .contact-value,
+.dark-mode .category-title,
+.dark-mode .skill-name,
+.dark-mode .footer-logo-text,
+.dark-mode .links-title,
+.dark-mode .form-title {
+  color: var(--dark-text) !important;
+}
+
+.dark-mode .title,
+.dark-mode .about-text,
+.dark-mode .project-description,
+.dark-mode .contact-message,
+.dark-mode .newsletter-text,
+.dark-mode .footer-tagline,
+.dark-mode .footer-copyright,
+.dark-mode .footer-legal a,
+.dark-mode .project-tech-title,
+.dark-mode .project-features-title,
+.dark-mode .contact-platform,
+.dark-mode .client,
+.dark-mode .client-normal {
+  color: var(--dark-muted) !important;
+}
+
+.dark-mode .section-title,
+.dark-mode .projects-subtitle,
+.dark-mode .contact-subtitle,
+.dark-mode .skills-subtitle,
+.dark-mode .stat-number,
+.dark-mode .project-role,
+.dark-mode .skill-level {
+  color: var(--dark-green) !important;
+}
+
+/* ===== Components ===== */
+.dark-mode .hero-section {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  border-color: var(--dark-green);
+}
+
+.dark-mode .about-section {
+  background: linear-gradient(130deg, #1e293b 0%, #0f172a 100%);
+  border-color: var(--dark-green);
+}
+
+.dark-mode .skills-section {
+  background: linear-gradient(120deg, #1e293b 0%, #0f172a 100%);
+  border-color: var(--dark-green);
+}
+
+.dark-mode .projects-section {
+  background: linear-gradient(140deg, #1e293b 0%, #0f172a 100%);
+  border-color: var(--dark-green);
+}
+
+.dark-mode .contact-section {
+  background: linear-gradient(140deg, #1e293b 0%, #0f172a 100%);
+  border-color: var(--dark-green);
+}
+
+.dark-mode .luxury-footer {
+  background: linear-gradient(135deg, #020617 0%, #0f172a 100%);
+  border-top: 1px solid var(--dark-border);
+}
+
+/* ===== Form Elements ===== */
+.dark-mode .form-input,
+.dark-mode .newsletter-input {
+  background-color: var(--dark-bg);
+  color: var(--dark-text);
+  border-color: var(--dark-border);
+}
+
+.dark-mode .form-input:focus {
+  background-color: var(--dark-surface);
+  box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.2);
+}
+
+.dark-mode .form-label {
+  color: var(--dark-text);
+}
+
+.dark-mode ::placeholder {
+  color: var(--dark-gray-light);
+}
+
+/* ===== Cards & Surfaces ===== */
+.dark-mode .project-card,
+.dark-mode .skill-category,
+.dark-mode .contact-info,
+.dark-mode .contact-form,
+.dark-mode .contact-option {
+  background-color: var(--dark-surface);
+  border-color: var(--dark-border);
+}
+
+.dark-mode .skill-tag,
+.dark-mode .project-tech {
+  background-color: var(--dark-bg);
+  color: var(--dark-text);
+  border: 1px solid var(--dark-border);
+}
+
+/* ===== Buttons ===== */
+.dark-mode .download-btn,
+.dark-mode .mobile-download-btn,
+.dark-mode .project-button-primary,
+.dark-mode .submit-button,
+.dark-mode .newsletter-button {
+  background-color: var(--dark-green);
+  color: #111827;
+}
+
+.dark-mode .download-btn:hover,
+.dark-mode .mobile-download-btn:hover,
+.dark-mode .project-button-primary:hover,
+.dark-mode .submit-button:hover,
+.dark-mode .newsletter-button:hover {
+  background-color: #3ac973;
+}
+
+.dark-mode .project-button-secondary {
+  background-color: transparent;
+  color: var(--dark-green);
+  border-color: var(--dark-green);
+}
+
+.dark-mode .project-button-secondary:hover {
+  background-color: rgba(74, 222, 128, 0.1);
+}
+
+/* ===== Navigation ===== */
+
+
+.dark-mode .nav a {
+  color: var(--dark-text);
+}
+
+.dark-mode .nav a:hover {
+  color: var(--dark-green);
+}
+
+.dark-mode .mobile-menu {
+  background-color: var(--dark-surface);
+  border-left: 1px solid var(--dark-border);
+}
+
+.dark-mode .mobile-menu a {
+  color: var(--dark-text);
+}
+
+/* ===== Scrollbar ===== */
+.dark-mode ::-webkit-scrollbar {
+  width: 10px;
+}
+
+.dark-mode ::-webkit-scrollbar-track {
+  background: var(--dark-surface);
+}
+
+.dark-mode ::-webkit-scrollbar-thumb {
+  background: var(--dark-green);
+  border-radius: 5px;
+}
+
+/* ===== Transitions ===== */
+.dark-mode,
+.dark-mode body,
+.dark-mode .hero-section,
+.dark-mode .about-section,
+.dark-mode .skills-section,
+.dark-mode .projects-section,
+.dark-mode .contact-section,
+.dark-mode .luxury-footer,
+.dark-mode .project-card,
+.dark-mode .skill-category,
+.dark-mode .contact-info,
+.dark-mode .contact-form,
+.dark-mode .skill-tag,
+.dark-mode .contact-option,
+.dark-mode .name,
+.dark-mode .title,
+.dark-mode .section-title,
+.dark-mode .about-title,
+.dark-mode .about-text,
+.dark-mode .skills-title,
+.dark-mode .projects-title,
+.dark-mode .contact-title,
+.dark-mode .contact-message,
+.dark-mode .project-name,
+.dark-mode .project-description,
+.dark-mode .stat-number,
+.dark-mode .stat-label,
+.dark-mode .footer-nav a,
+.dark-mode .nav a,
+.dark-mode .mobile-menu a,
+.dark-mode .download-btn,
+.dark-mode .mobile-download-btn,
+.dark-mode .project-button,
+.dark-mode .submit-button,
+.dark-mode .social-link,
+.dark-mode .form-input,
+.dark-mode .newsletter-input,
+.dark-mode .background-gradient-1,
+.dark-mode .background-gradient-2,
+.dark-mode .about-gradient-1,
+.dark-mode .about-gradient-2,
+.dark-mode .skills-gradient-1,
+.dark-mode .skills-gradient-2,
+.dark-mode .projects-gradient-1,
+.dark-mode .projects-gradient-2,
+.dark-mode .contact-gradient-1,
+.dark-mode .contact-gradient-2 {
+  transition:
+    background-color 1s ease,
+    color 1s ease,
+    border-color 1s ease,
+    box-shadow 0.6s ease,
+    opacity 1s ease,
+    backdrop-filter 1s ease,
+    transform 1s ease;
+}
+
+.dark-mode .project-feature {
+  color: var(--dark-muted) !important;
+}
+
+.dark-mode .logo-icon {
+  background-color: var(--dark-green) !important;
+  color: var(--dark-bg) !important;
+
+}
+
+.hamburger span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: var(--dark-muted) !important;
+  transition: all 0.3s ease;
+}

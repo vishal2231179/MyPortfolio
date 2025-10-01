@@ -1,0 +1,320 @@
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sliding Puzzle</title>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <style>
+    :root {
+      --gray-dark: #0b0c0e;
+      --gray-light: #9CA3AF;
+      --green: #22C55E;
+      --green-scribble: rgba(34, 197, 94, 0.4);
+      --pink-bg: #FCE7F3;
+      --purple-bg: #EDE9FE;
+      --font-size-small: 0.75rem;
+      --letter-spacing: 0.12em;
+      --font-weight-medium: 500;
+      --font-weight-bold: 600;
+      --background-circle-size: 448px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #ffffff 0%, #e8f0ff 40%, #c3d7ff 100%);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    .background-circle {
+      position: absolute;
+      width: var(--background-circle-size);
+      height: var(--background-circle-size);
+      border-radius: 50%;
+      opacity: 0.25;
+      background: radial-gradient(circle at center, var(--pink-bg), transparent);
+      top: -120px;
+      left: -120px;
+      z-index: 0;
+    }
+
+    .game-container {
+      position: relative;
+      z-index: 10;
+      background: #fff;
+      border-radius: 0.75rem;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      padding: clamp(1rem, 5vw, 2rem);
+      max-width: 90vw;
+      text-align: center;
+      border: 2px solid var(--gray-dark);
+    }
+
+    h1 {
+      font-size: clamp(1.5rem, 5vw, 2rem);
+      font-weight: var(--font-weight-bold);
+      color: var(--gray-dark);
+      margin-bottom: 1rem;
+    }
+
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: clamp(1rem, 5vw, 2rem);
+      margin-bottom: 1rem;
+      font-size: clamp(0.875rem, 3vw, 1rem);
+      color: var(--gray-dark);
+      font-weight: var(--font-weight-medium);
+    }
+
+    .game-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(60px, 120px));
+      gap: 0.25rem;
+      margin: 0 auto;
+      background: var(--gray-light);
+      padding: 0.25rem;
+      border-radius: 0.5rem;
+    }
+
+    .tile {
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--pink-bg);
+      color: var(--gray-dark);
+      font-size: clamp(1.25rem, 4vw, 1.5rem);
+      font-weight: var(--font-weight-bold);
+      border-radius: 0.25rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .tile:hover {
+      background: var(--green-scribble);
+    }
+
+    .tile.empty {
+      background: transparent;
+      cursor: default;
+    }
+
+    .controls {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: center;
+      gap: clamp(0.5rem, 3vw, 1rem);
+    }
+
+    button {
+      background: var(--gray-dark);
+      color: var(--pink-bg);
+      border: none;
+      padding: 0.75rem 1.5rem;
+      font-size: var(--font-size-small);
+      font-weight: var(--font-weight-medium);
+      letter-spacing: var(--letter-spacing);
+      cursor: pointer;
+      border-radius: 0.5rem;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    button:hover {
+      background: var(--green);
+      transform: translateY(-2px);
+    }
+
+    .win-message {
+      margin-top: 1rem;
+      font-size: clamp(0.875rem, 3vw, 1rem);
+      color: var(--green);
+      font-weight: var(--font-weight-bold);
+      display: none;
+    }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 5;
+      pointer-events: none;
+    }
+
+    @media (max-width: 480px) {
+      .game-grid {
+        grid-template-columns: repeat(3, minmax(50px, 80px));
+      }
+
+      .tile {
+        font-size: clamp(1rem, 3vw, 1.25rem);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="background-circle"></div>
+  <div class="game-container" role="region" aria-label="Sliding Puzzle Game">
+    <h1>Sliding Puzzle</h1>
+    <div class="stats">
+      <span>Moves: <span id="moveCount">0</span></span>
+      <span>Time: <span id="timer">0s</span></span>
+    </div>
+    <div class="game-grid" id="game" role="grid"></div>
+    <div class="controls">
+      <button onclick="resetGame()">Reset</button>
+      <button onclick="window.location.href='index.html'">Back to Portfolio</button>
+    </div>
+    <div class="win-message" id="winMessage">Puzzle Solved!</div>
+    <canvas id="confetti"></canvas>
+  </div>
+  <script>
+    const grid = document.getElementById('game');
+    const moveCountDisplay = document.getElementById('moveCount');
+    const timerDisplay = document.getElementById('timer');
+    const winMessage = document.getElementById('winMessage');
+    let board = [1, 2, 3, 4, 5, 6, 7, 8, 0];
+    let moves = 0;
+    let time = 0;
+    let timerInterval;
+
+    function createBoard() {
+      grid.innerHTML = '';
+      board.forEach((num, i) => {
+        const tile = document.createElement('div');
+        tile.className = `tile ${num === 0 ? 'empty' : ''}`;
+        tile.textContent = num || '';
+        tile.setAttribute('role', 'gridcell');
+        tile.setAttribute('aria-label', num ? `Tile ${num}` : 'Empty tile');
+        if (num) tile.addEventListener('click', () => moveTile(i));
+        grid.appendChild(tile);
+      });
+    }
+
+    function moveTile(index) {
+      const emptyIndex = board.indexOf(0);
+      const validMoves = [
+        index - 1 >= 0 && Math.floor((index - 1) / 3) === Math.floor(index / 3) ? index - 1 : null,
+        index + 1 < 9 && Math.floor((index + 1) / 3) === Math.floor(index / 3) ? index + 1 : null,
+        index - 3 >= 0 ? index - 3 : null,
+        index + 3 < 9 ? index + 3 : null
+      ];
+      if (validMoves.includes(emptyIndex)) {
+        [board[index], board[emptyIndex]] = [board[emptyIndex], board[index]];
+        moves++;
+        moveCountDisplay.textContent = moves;
+        createBoard();
+        checkWin();
+      }
+    }
+
+    function checkWin() {
+      if (board.join() === '1,2,3,4,5,6,7,8,0') {
+        clearInterval(timerInterval);
+        winMessage.style.display = 'block';
+        confetti({
+          particleCount: 100,
+          spread: 70,
+          origin: { y: 0.6 }
+        });
+      }
+    }
+
+    function shuffleBoard() {
+      for (let i = 0; i < 100; i++) {
+        const emptyIndex = board.indexOf(0);
+        const validMoves = [
+          emptyIndex - 1 >= 0 && Math.floor((emptyIndex - 1) / 3) === Math.floor(emptyIndex / 3) ? emptyIndex - 1 : null,
+          emptyIndex + 1 < 9 && Math.floor((emptyIndex + 1) / 3) === Math.floor(emptyIndex / 3) ? emptyIndex + 1 : null,
+          emptyIndex - 3 >= 0 ? emptyIndex - 3 : null,
+          emptyIndex + 3 < 9 ? emptyIndex + 3 : null
+        ].filter(x => x !== null);
+        const randomMove = validMoves[Math.floor(Math.random() * validMoves.length)];
+        [board[emptyIndex], board[randomMove]] = [board[randomMove], board[emptyIndex]];
+      }
+    }
+
+    function startTimer() {
+      clearInterval(timerInterval);
+      time = 0;
+      timerDisplay.textContent = `${time}s`;
+      timerInterval = setInterval(() => {
+        time++;
+        timerDisplay.textContent = `${time}s`;
+      }, 1000);
+    }
+
+    function resetGame() {
+      moves = 0;
+      moveCountDisplay.textContent = moves;
+      winMessage.style.display = 'none';
+      shuffleBoard();
+      createBoard();
+      startTimer();
+    }
+
+    document.addEventListener('keydown', (e) => {
+      const emptyIndex = board.indexOf(0);
+      const moves = {
+        'ArrowUp': emptyIndex + 3 < 9 ? emptyIndex + 3 : null,
+        'ArrowDown': emptyIndex - 3 >= 0 ? emptyIndex - 3 : null,
+        'ArrowLeft': emptyIndex + 1 < 9 && Math.floor((emptyIndex + 1) / 3) === Math.floor(emptyIndex / 3) ? emptyIndex + 1 : null,
+        'ArrowRight': emptyIndex - 1 >= 0 && Math.floor((emptyIndex - 1) / 3) === Math.floor(emptyIndex / 3) ? emptyIndex - 1 : null
+      };
+      if (moves[e.key]) moveTile(moves[e.key]);
+    });
+
+    resetGame();
+  </script>
+</body>
+</html>

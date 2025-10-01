@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="theme-color" content="#317EFB" />
+    <meta name="description" content="Vishal's Portfolio - Web Developer" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UX/UI Designer</title>
+    <link rel="stylesheet" href="./side_pannel.css" />
+    <link rel="stylesheet" href="./philosophy.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="./cardpopup.css" />
+    <link rel="stylesheet" href="./game.css" />
+    <link rel="stylesheet" href="./chatbot.css" />
+    <!-- <link rel="stylesheet" href="./pointer.css" /> -->
+    <!-- <link rel="stylesheet" href="Philosophy.css"> -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link
+      rel="shortcut icon"
+      id="favicon"
+      href="./fav.png"
+      type="image/x-icon"
+    />
+    <style>
+      .arrow-container {
+        display: flex;
+        align-items: center;
+      }
+      .fa-solid.fa-arrow-left-long {
+        font-size: 14px;
+        margin-right: 10px;
+        /* color: #babab5;  */
+        animation: bounceLeft 1s infinite;
+      }
+      @keyframes bounceLeft {
+        0%,
+        100% {
+          transform: translateX(0);
+        }
+        50% {
+          transform: translateX(-10px);
+        }
+      }
+      .hide {
+        display: none;
+      }
+      @media (max-width: 772px) {
+        .fa-solid.fa-arrow-left-long {
+          display: none;
+        }
+      }
+      #scrollIcon {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 1000;
+        cursor: pointer;
+      }
+      #scrollIcon i {
+        font-size: 24px;
+        transition: opacity 0.3s ease;
+        display: none;
+      }
+      #scrollIcon i.active {
+        display: inline-block;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h2 style="color: #3fe84a">vishal</h2>
+        <div class="buttons">
+          <button id="gameTrigger" class="play-btn">
+            <span class="controller-icon"></span> Let's Play
+          </button>
+          <a
+            href="./Vishal_Prajapati_Resume.pdf"
+            target="_blank"
+            class="linkedin-btn"
+            >Resume</a
+          >
+          <a
+            href="https://www.linkedin.com/in/vishalprj"
+            target="_blank"
+            class="linkedin-btn"
+            >LinkedIn</a
+          >
+          <a
+            href="mailto:thevishuarijitian@gmail.com"
+            target="_blank"
+            class="email-btn"
+            >Email</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="profile-section">
+        <div class="profile-image">
+          <div class="avatar-circle">
+            <img
+              src="./Profile.jpg"
+              oncontextmenu="return false;"
+              style="pointer-events: none"
+              alt="Profile Image"
+            />
+          </div>
+          <br />
+
+          <span class="hero-heading1" style="color: #3fe84a">UI/UX</span> <br />
+          <span class="hero-heading2" style="color: #3fe84a">Designer</span>
+        </div>
+        <div class="profile-content">
+          <br />
+          <h1>Hi, I'm Vishal . . .</h1>
+          <br />
+          <p>
+            Hello! I'm Vishal Prajapati, a passionate UI/UX designer with a
+            flair for creating stunning and user-centric digital experiences.
+            With a keen eye for detail and a knack for understanding user
+            behavior, I bring ideas to life through captivating designs that
+            bridge the gap between aesthetics and functionality.
+          </p>
+          <div class="profile-buttons">
+            <button
+              class="get-connect-btn"
+              onclick="hideArrow()"
+              popovertarget="get-more-btn"
+            >
+              Let's Connect
+            </button>
+            <button
+              class="learn-more-btn"
+              onclick="hideArrow()"
+              popovertarget="learn-more-btn"
+            >
+              About me
+            </button>
+            <div class="arrow-container">
+              <i class="fa-solid fa-arrow-left-long" id="leftArrow"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Popover sections -->
+    <section class="about-section-pop" id="learn-more-btn" popover>
+      <div class="container-pop">
+        <div class="scroll-frame">
+          <div class="about-content-pop">
+            <h2>About Vishal Prajapati</h2>
+            <p>
+              I am a passionate BCA student, aspiring to make a positive impact
+              through my technical skills and creativity. With a solid
+              foundation in web development, including HTML, CSS, and
+              JavaScript, I have honed my expertise through certifications and
+              participation in various competitions.
+            </p>
+            <p>
+              My technical toolkit also includes Tailwind CSS, Figma for web
+              design, and Adobe Photoshop, enabling me to create visually
+              appealing and functional designs.
+            </p>
+            <p>
+              I am constantly seeking opportunities to grow and innovate,
+              blending my technical knowledge with strong soft skills like
+              communication, collaboration, and adaptability. Beyond academics,
+              I am actively involved in co-curricular activities, including
+              coding competitions, UX/UI design, and photography.
+            </p>
+            <p>
+              When I'm not coding or designing, you can find me drawing,
+              singing, or exploring new ways to express my creativity.
+            </p>
+            <p>
+              Explore my projects, certifications, and more to see how I turn
+              ideas into reality.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="center-conatainer">
+      <div class="contact-form" id="get-more-btn" popover>
+        <span class="heading" style="color: #59e762">Let's Connect</span>
+        <form action="https://formcarry.com/s/1WZXuiIc74v" method="POST">
+          <label for="name">Name:</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Your Name"
+            required
+          />
+          <label for="email">Email:</label>
+          <input
+            type="email"
+            id="email"
+            placeholder="Your E-mail"
+            name="email"
+            required
+          />
+          <label for="subject">Subject:</label>
+          <input
+            type="text"
+            id="subject"
+            name="subject"
+            placeholder="Subject"
+            required
+          />
+          <label for="message">Message:</label>
+          <textarea
+            id="message"
+            name="message"
+            placeholder="Write Message..."
+            required
+          ></textarea>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </section>
+    <br /><br /><br /><br /><br /><br />
+    <br />
+
+    <!-- Your existing skills section -->
+    <section>
+      <h1 class="section-title">Skills</h1>
+      <div class="skills-container">
+        <div class="skill-card" onclick="showSkillPopup('UX Research')">
+          <div class="icon-box">
+            <img src="uxResearch.png" alt="UX Research Icon" />
+          </div>
+          <div class="skill-title">UX Research</div>
+        </div>
+
+        <div class="skill-card" onclick="showSkillPopup('Wireframing')">
+          <div class="icon-box">
+            <img src="wireframing.png" alt="Wireframing Icon" />
+          </div>
+          <div class="skill-title">Wireframing</div>
+        </div>
+
+        <!-- Add onclick to all other skill cards similarly -->
+        <div class="skill-card" onclick="showSkillPopup('User Persona')">
+          <div class="icon-box">
+            <img src="userPersona.png" alt="User Persona Icon" />
+          </div>
+          <div class="skill-title">User Persona</div>
+        </div>
+
+        <div class="skill-card" onclick="showSkillPopup('Figma')">
+          <div class="icon-box">
+            <img src="figma.png" alt="Brand Identity Icon" />
+          </div>
+          <div class="skill-title">Figma</div>
+        </div>
+
+        <div class="skill-card" onclick="showSkillPopup('Collaboration')">
+          <div class="icon-box">
+            <img src="collaboration.png" alt="Accessibility Icon" />
+          </div>
+          <div class="skill-title">Collaboration</div>
+        </div>
+
+        <div class="skill-card" onclick="showSkillPopup('Prototyping')">
+          <div class="icon-box">
+            <img src="prototyping.png" alt="Collaboration Icon" />
+          </div>
+          <div class="skill-title">Prototyping</div>
+        </div>
+
+        <div class="skill-card" onclick="showSkillPopup('HTML')">
+          <div class="icon-box">
+            <img src="html.png" alt="Feedback Icon" />
+          </div>
+          <div class="skill-title">HTML</div>
+        </div>
+
+        <div class="skill-card" onclick="showSkillPopup('CSS')">
+          <div class="icon-box">
+            <img src="css.png" alt="Prototyping Icon" />
+          </div>
+          <div class="skill-title">CSS</div>
+        </div>
+
+        <div class="skill-card" onclick="showSkillPopup('JavaScript')">
+          <div class="icon-box">
+            <img src="js.png" alt="User Testing Icon" />
+          </div>
+          <div class="skill-title">JavaScript</div>
+        </div>
+
+        <div class="skill-card" onclick="showSkillPopup('C Language')">
+          <div class="icon-box">
+            <img src="C.png" alt="User Testing Icon" />
+          </div>
+          <div class="skill-title">C Language</div>
+        </div>
+
+        <div class="skill-card" onclick="showSkillPopup('Python')">
+          <div class="icon-box">
+            <img src="python.png" alt="User Testing Icon" />
+          </div>
+          <div class="skill-title">Python</div>
+        </div>
+
+        <div class="skill-card" onclick="showSkillPopup('XML')">
+          <div class="icon-box">
+            <img src="xml.png" alt="User Testing Icon" />
+          </div>
+          <div class="skill-title">XML</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal Popup -->
+    <div class="modal-overlay" id="skillModal">
+      <div class="modal-content">
+        <button class="close-modal" onclick="closeModal()">×</button>
+        <h2 id="modalSkillTitle"></h2>
+        <div class="skill-details" id="skillDetails">
+          <!-- Content will be inserted here by JavaScript -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Projects section -->
+    <section class="portfolio-section">
+      <h2>Projects</h2>
+      <div class="portfolio-container">
+        <div class="portfolio-card">
+          <img src="PageVista.png" alt="PageVista img" />
+          <p>E-Book Web Application</p>
+        </div>
+        <!-- Other project cards... -->
+        <div class="portfolio-card">
+          <img src="tow.jpg" alt="Photorama" />
+          <p>Photorama</p>
+        </div>
+        <div class="portfolio-card">
+          <img src="three.jpg" alt="Sweden" />
+          <p>Sweden</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Articles section -->
+    <section class="articles-section">
+      <h1 class="section-title">Article Links</h1>
+
+      <div class="article-cards">
+        <!-- Card 1 -->
+        <div class="article-card">
+          <div class="card-content">
+            <h3>A Guide to Effective UX Design</h3>
+            <p>Digital experiences that resonate with users</p>
+          </div>
+          <button class="card-action" data-article="ux-design">
+            <span class="arrow-icon">→</span>
+          </button>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="article-card">
+          <div class="card-content">
+            <h3>Color Psychology in UI Design</h3>
+            <p>Using colors to engage in user interfaces</p>
+          </div>
+          <button class="card-action" data-article="color-psychology">
+            <span class="arrow-icon">→</span>
+          </button>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="article-card">
+          <div class="card-content">
+            <h3>From Sketch to Prototype</h3>
+            <p>From designs into interactive views</p>
+          </div>
+          <button class="card-action" data-article="sketch-prototype">
+            <span class="arrow-icon">→</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Article Panel -->
+    <div class="article-panel-overlay" id="panelOverlay"></div>
+    <aside class="article-panel" id="sidePanel">
+      <div class="panel-header">
+        <button class="close-panel" aria-label="Close panel">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+      </div>
+      <div class="panel-content" id="articleContent">
+        <!-- Dynamic content will be inserted here -->
+      </div>
+    </aside>
+
+    <br /><br /><br /><br />
+
+    <!-- Philosophy section -->
+    <!-- <div class="container4">
+        <div class="content">
+            <h1>Philosophy</h1>
+            <p>I believe that design is more than just aesthetics—it's about crafting meaningful experiences. My design approach combines creativity with empathy, placing the user at the heart of every decision. Whether it's creating intuitive user interfaces or mapping out user journeys, I aim to design products that resonate with people and enhance their interactions.</p>
+            <a href="#" class="learn-more">Learn more</a>
+        </div>
+        <div class="image-container">
+            <img src="./web.png" height="300px" alt="Character Image">
+        </div>
+    </div> -->
+    <!-- Philosophy section -->
+    <div class="container4">
+      <div class="content">
+        <h1>Philosophy</h1>
+        <p>
+          I believe that design is more than just aesthetics—it's about crafting
+          meaningful experiences. My design approach combines creativity with
+          empathy, placing the user at the heart of every decision. Whether it's
+          creating intuitive user interfaces or mapping out user journeys, I aim
+          to design products that resonate with people and enhance their
+          interactions.
+        </p>
+        <button class="learn-more" id="philosophyBtn">Learn more</button>
+      </div>
+      <div class="image-container">
+        <img src="./web.png" height="300px" alt="Character Image" />
+      </div>
+    </div>
+
+    <!-- Philosophy Panel Overlay -->
+    <div class="panel-overlay" id="philosophyOverlay"></div>
+    <div class="philosophy-panel" id="philosophyPanel">
+      <button class="close-btn" id="closePhilosophy">&times;</button>
+      <div class="philosophy-content">
+        <h2>My Design Philosophy</h2>
+        <div class="philosophy-details">
+          <div class="philosophy-point">
+            <h3>User-Centered Approach</h3>
+            <p>
+              Every design decision begins with understanding the user's needs,
+              behaviors, and pain points. I employ research methods like user
+              interviews, surveys, and usability testing to ensure designs solve
+              real problems.
+            </p>
+          </div>
+
+          <div class="philosophy-point">
+            <h3>Empathy in Design</h3>
+            <p>
+              Design should serve people, not just business goals. I create
+              solutions that consider diverse perspectives and accessibility
+              needs, ensuring inclusive experiences for all users.
+            </p>
+          </div>
+
+          <div class="philosophy-point">
+            <h3>Form Follows Function</h3>
+            <p>
+              While aesthetics are important, they should never compromise
+              usability. I strike a balance between beautiful visuals and
+              intuitive interactions that guide users effortlessly.
+            </p>
+          </div>
+
+          <div class="philosophy-point">
+            <h3>Iterative Process</h3>
+            <p>
+              Great design evolves through continuous testing and refinement. I
+              embrace feedback loops and data-driven decisions to progressively
+              enhance the user experience.
+            </p>
+          </div>
+
+          <div class="philosophy-point">
+            <h3>Holistic Thinking</h3>
+            <p>
+              I consider the entire ecosystem of a product—from the first
+              touchpoint to ongoing engagement—creating cohesive experiences
+              across all channels and platforms.
+            </p>
+          </div>
+        </div>
+      </div>
+      <br />
+    </div>
+
+    <!-- Floating chat bubble -->
+    <button class="chat-bubble" id="chatBubble" aria-label="Open chat">
+      <img
+        src="https://cdn-icons-png.flaticon.com/512/4712/4712035.png"
+        alt="Chat icon"
+      />
+    </button>
+
+    <!-- Overlay -->
+    <div class="chat-overlay" id="chatOverlay"></div>
+
+    <!-- Chat panel container -->
+    <div class="chat-panel-container" id="chatPanelContainer">
+      <button class="close-btn" id="closeBtn" aria-label="Close chat">×</button>
+      <div class="chat-panel">
+        <div class="chat-header">
+          <div class="chat-title">Vishal Prajapati</div>
+        </div>
+        <div class="iframe-container">
+          <iframe
+            src="https://www.chatbase.co/chatbot-iframe/hhn_s_bK69Q4Fa488db6u"
+            allow="microphone"
+            title="Chatbot interface"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- Collaboration section -->
+    <div class="collaborate-section">
+      <h2>Let's Collaborate</h2>
+      <div class="collaborate-container">
+        <div class="collaborate-item">
+          <a href="mailto:thevishuarijitian@gmail.com" target="_blank">
+            <div class="icon"><i class="fas fa-envelope"></i></div>
+            <span>Email</span>
+          </a>
+        </div>
+        <!-- Other collaboration items... -->
+        <div class="collaborate-item">
+          <a href="https://www.linkedin.com/in/vishalprj" target="_blank">
+            <div class="icon">
+              <i class="fab fa-linkedin"></i>
+            </div>
+            <span>LinkedIn</span>
+          </a>
+        </div>
+        <div class="collaborate-item">
+          <a href="https://github.com/vishal2231179" target="_blank">
+            <div class="icon">
+              <i class="fa-brands fa-github"></i>
+            </div>
+            <span>GitHub</span>
+          </a>
+        </div>
+        <div class="collaborate-item">
+          <a href="https://www.instagram.com/vishu.arijitian" target="_blank">
+            <div class="icon">
+              <i class="fa-brands fa-instagram"></i>
+            </div>
+            <span>Instagram</span>
+          </a>
+        </div>
+        <div class="collaborate-item">
+          <a href="https://x.com/vishuarijitian" target="_blank">
+            <div class="icon">
+              <i class="fa-brands fa-x-twitter"></i>
+            </div>
+            <span>X-Twitter</span>
+          </a>
+        </div>
+        <div class="collaborate-item">
+          <a href="https://www.lyricslelo.online" target="_blank">
+            <div class="icon">
+              <i class="fa-brands fa-blogger"></i>
+            </div>
+            <span>Blogger</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll icon -->
+    <div id="scrollIcon">
+      <i
+        id="scrollDown"
+        class="fa-solid fa-angles-down active"
+        style="color: #3fe84a"
+      ></i>
+      <i id="scrollUp" class="fa-solid fa-angles-up" style="color: #3fe84a"></i>
+    </div>
+
+    <!-- Background -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <div id="name3d"></div>
+
+    <script>
+      // Scene setup
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(
+        75,
+        window.innerWidth / window.innerHeight,
+        0.1,
+        1000
+      );
+      const renderer = new THREE.WebGLRenderer({ alpha: true });
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      document.getElementById("name3d").appendChild(renderer.domElement);
+
+      // Create your name
+      const loader = new THREE.FontLoader();
+      loader.load(
+        "https://threejs.org/examples/fonts/helvetiker_regular.typeface.json",
+        function (font) {
+          const geometry = new THREE.TextGeometry("VISHAL", {
+            font: font,
+            size: 1,
+            height: 0.2,
+            curveSegments: 12,
+            bevelEnabled: true,
+          });
+
+          const material = new THREE.MeshPhongMaterial({
+            color: 0xffcc00,
+            specular: 0x111111,
+            shininess: 30,
+          });
+
+          const nameMesh = new THREE.Mesh(geometry, material);
+          scene.add(nameMesh);
+
+          // Add lights
+          const light1 = new THREE.PointLight(242200, 1.5, 40);
+          light1.position.set(10, 10, 10);
+          scene.add(light1);
+
+          const light2 = new THREE.PointLight(1111, 1.5, 40);
+          light2.position.set(-10, -10, -10);
+          scene.add(light2);
+
+          camera.position.z = 5;
+
+          // Animation
+          function animate() {
+            requestAnimationFrame(animate);
+            nameMesh.rotation.x += 0.005;
+            nameMesh.rotation.y += 0.001;
+            renderer.render(scene, camera);
+          }
+          animate();
+        }
+      );
+
+      // Responsive
+      window.addEventListener("resize", () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+      });
+    </script>
+
+    <style>
+      #name3d {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        opacity: 0.15;
+      }
+    </style>
+
+    <!-- Background -->
+    <!-- <svg class="neurons" viewBox="0 0 100 100" preserveAspectRatio="none">
+  <path class="neuron-path" d="M10,50 Q25,10 40,50 T70,50 T90,30" />
+</svg>
+
+<style>
+.neurons {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.neuron-path {
+  stroke: rgba(255, 204, 0, 0.363);
+  stroke-width: 0.3;
+  fill: none;
+  stroke-dasharray: 5, 5;
+  animation: pulse 4s ease-in-out infinite alternate;
+}
+
+@keyframes pulse {
+  0% { stroke-dashoffset: 0; opacity: 0.3; }
+  100% { stroke-dashoffset: 40; opacity: 0.7; }
+}
+
+body {
+  background: #000000;
+}
+</style> -->
+    <!-- Background -->
+    <div id="gameModal" class="game-modal">
+      <div class="game-content">
+        <div class="game-header">
+          <h3>Skill Collector Game</h3>
+          <div class="game-controls">
+            <button id="pauseBtn">⏸</button>
+            <button id="closeB">✕</button>
+          </div>
+        </div>
+
+        <div class="instructions">
+          <p>
+            <i class="fa-solid fa-arrow-left"></i>
+            <i class="fa-solid fa-arrow-right"></i> Arrow Keys to Move | Collect
+            <span class="green">Skills</span> |
+            <span id="timerDisplay">60s</span>
+          </p>
+        </div>
+
+        <canvas id="gameCanvas"></canvas>
+
+        <div class="mobile-controls">
+          <button id="mobileLeftBtn">
+            <i class="fa-solid fa-arrow-left"></i>
+          </button>
+          <button id="mobileRightBtn">
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+
+        <div class="game-footer">
+          <span id="scoreDisplay">Score: 0</span>
+          <button id="restartBtn">↻ Restart</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="centered-container">
+        <h1 class="centered-name">VISHAL</h1>
+        <hr class="divider" />
+        <small class="left-aligned-text">VISHAL P.</small>
+      </div>
+    </footer>
+    <script src="./game.js"></script>
+    <script src="./side_pannel.js"></script>
+    <script src="./srollTopDown.js"></script>
+    <script src="./cardpopup.js"></script>
+    <script src="./chatbot.js"></script>
+
+    <script>
+      function hideArrow() {
+        document.getElementById("leftArrow").classList.add("hide");
+      }
+    </script>
+  </body>
+</html>
+
