@@ -1,0 +1,208 @@
+Perfect. 🔥  
+Neeche main **ONE SINGLE MASTER PROMPT** de raha hoon jo tum **direct Claude (Claude 3 / Opus / Sonnet)** me paste kar sakte ho.
+
+✅ Is prompt ka goal:
+
+*   **Fully working website**
+*   **SEO‑ready**
+*   **Production‑ready structure**
+*   **No missing parts**
+*   **Beginner‑friendly**
+*   **Future scalable (2026–2040)**
+
+Tumhe **repeat karne ki zarurat nahi padegi**.
+
+***
+
+# ✅ ✅ ✅ COPY–PASTE THIS COMPLETE PROMPT INTO CLAUDE ✅ ✅ ✅
+
+***
+
+## 🔴 MASTER PROMPT FOR CLAUDE (DO NOT MODIFY)
+
+    You are a senior full‑stack engineer, SEO architect, and SaaS product designer with 15+ years of experience.
+
+    Your task is to build a COMPLETE, WORKING, PRODUCTION‑READY SaaS website for social media creators.
+
+    IMPORTANT:
+    - Do not skip ANY section
+    - The website must WORK end‑to‑end
+    - The output must be clean, structured, and implementation‑ready
+    - Assume the developer is intermediate (not beginner, not expert)
+
+    ===============================
+    WEBSITE CONCEPT
+    ===============================
+
+    Website name (temporary): Audience Demand Engine
+
+    Core idea:
+    This website helps Instagram, YouTube, Shorts, and Facebook creators discover:
+    1) What content people ACTUALLY want (based on demand)
+    2) What content will monetize (not just get views)
+    3) How to convert content into owned digital assets (email, products, community)
+
+    This is NOT a generic content planner.
+    This is a DEMAND + ASSET‑FIRST platform.
+
+    Target users:
+    - Small & mid creators
+    - Indian creators (initial market)
+    - Global expansion later
+
+    ===============================
+    TECH STACK (STRICT)
+    ===============================
+
+    Use ONLY this stack:
+
+    Frontend:
+    - Next.js (App Router)
+    - TypeScript
+    - Tailwind CSS
+    - Server‑Side Rendering for SEO
+
+    Backend:
+    - Next.js API routes
+    - Node.js logic
+
+    Database:
+    - PostgreSQL (via Prisma ORM)
+
+    Auth:
+    - Email + password
+    - JWT or NextAuth
+
+    CMS:
+    - Markdown‑based or headless CMS (SEO content)
+
+    Deployment:
+    - Vercel‑ready architecture
+
+    ===============================
+    DELIVERABLES (YOU MUST PROVIDE ALL)
+    ===============================
+
+    1) ✅ COMPLETE WEBSITE ARCHITECTURE
+       - Folder structure
+       - File naming
+       - Component hierarchy
+       - API route structure
+
+    2) ✅ DATABASE SCHEMA (Prisma)
+       - Users
+       - Niches
+       - Platforms
+       - Demand Ideas
+       - Assets
+       - Subscriptions
+       - SEO pages
+
+    3) ✅ CORE FEATURES (WITH LOGIC)
+
+       A) Audience Demand Finder
+       - Input: Platform, Niche, Country
+       - Output:
+         - High demand problems
+         - Over‑saturated topics
+         - Evergreen ideas
+       - Provide pseudocode or real logic (not vague explanation)
+
+       B) Content → Asset Converter
+       - Map content to:
+         - Email
+         - Paid product
+         - Community
+       - Show logic flow
+
+       C) Monetization Estimator
+       - Based on follower size + niche
+       - Output realistic earnings
+
+    4) ✅ FULL UI PAGES (DESCRIBE + CODE WHERE NEEDED)
+       - Landing page (SEO‑optimized)
+       - Auth pages
+       - Dashboard
+       - Demand results page
+       - Asset builder page
+       - Pricing page
+       - Blog / SEO pages
+
+    5) ✅ SEO ARCHITECTURE (CRITICAL)
+       - Programmatic SEO strategy
+       - Dynamic routes like:
+         /instagram-content-ideas/[niche]
+         /youtube-demand/[country]/[niche]
+       - Meta tags
+       - OpenGraph
+       - Schema Markup
+       - Internal linking strategy
+
+    6) ✅ SAMPLE CONTENT
+       - Example SEO blog
+       - Example demand report output
+       - Example asset roadmap
+
+    7) ✅ MONETIZATION SYSTEM
+       - Free vs Paid plan
+       - Feature gating logic
+       - Payment flow (Stripe‑ready)
+
+    8) ✅ SECURITY + PERFORMANCE
+       - Auth protection
+       - API rate limiting
+       - SEO + Core Web Vitals optimization
+
+    9) ✅ FUTURE ROADMAP
+       - AI integration plan
+       - Brand dashboard
+       - Creator reputation system
+
+    ===============================
+    STRICT RULES
+    ===============================
+
+    - No motivational talk
+    - No vague theory
+    - No placeholders like “do this later”
+    - Everything must be concrete and usable
+    - Code must be clean and commented
+    - SEO must be first‑class, not optional
+
+    ===============================
+    FINAL GOAL
+    ===============================
+
+    After reading your output, I should be able to:
+    ✅ Start building immediately
+    ✅ Deploy MVP within weeks
+    ✅ Rank on Google
+    ✅ Scale to a paid SaaS
+
+    NOW BUILD THE COMPLETE SYSTEM STEP BY STEP.
+
+***
+
+## ✅ IMPORTANT USAGE TIPS (READ ONCE)
+
+*   Claude agar output ko **multiple parts me de**, to end pe likho:
+        continue exactly where you stopped
+*   Agar code zyada ho, bolo:
+        give final production code, not sample
+
+***
+
+## 🚀 NEXT LEVEL (OPTIONAL)
+
+Agar tum chaho, main:
+
+*   ✅ Claude output ko **review + fix** kar dunga
+*   ✅ SEO keywords list India‑focused bana dunga
+*   ✅ Pricing + earning math realistic set karunga
+*   ✅ MVP cut‑down version suggest karunga (fast launch)
+
+Bas bolo:
+👉 **“Claude ka output review kar do”**
+
+Tum bahut strong idea + execution pe ho ab.  
+Ye prompt **seriously powerful hai** — careful use karo. 💎
