@@ -1,189 +1,342 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vishal Prajapati — UI/UX & Product Designer</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vishal Prajapati — UI/UX & Product Designer</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
 
-<!-- styles -->
-<link rel="stylesheet" href="styles/main.css">
-<link rel="stylesheet" href="styles/bubble.css">
-<link rel="stylesheet" href="styles/chatbot.css">
+    <!-- styles -->
+    <link rel="stylesheet" href="styles/main.css" />
+    <link rel="stylesheet" href="styles/bubble.css" />
+    <link rel="stylesheet" href="styles/chatbot.css" />
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-</head>
-<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  </head>
+  <body>
+    <div class="cur" id="cur"></div>
 
-<div class="cur" id="cur"></div>
+    <div class="blob blob1"></div>
+    <div class="blob blob2"></div>
+    <div class="blob blob3"></div>
 
-<div class="blob blob1"></div>
-<div class="blob blob2"></div>
-<div class="blob blob3"></div>
+    <header>
+      <div class="logo">vishal<span>.</span></div>
+      <nav>
+        <ul id="navList">
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#contact" class="nav-cta">Say Hi ✦</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" id="navToggle">☰</button>
+    </header>
 
-<header>
-  <div class="logo">vishal<span>.</span></div>
-  <nav>
-    <ul id="navList">
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#work">Work</a></li>
-      <li><a href="#contact" class="nav-cta">Say Hi ✦</a></li>
-    </ul>
-  </nav>
-  <button class="nav-toggle" id="navToggle">☰</button>
-</header>
+    <section id="hero">
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow reveal">✦ Available for freelance</div>
+          <h1 class="hero-title">
+            <div class="line"><span>Designing</span></div>
+            <div class="line"><span>products people</span></div>
+            <div class="line">
+              <span class="grad-text">actually love.</span>
+            </div>
+          </h1>
+          <p class="hero-sub reveal">
+            Hey, I'm Vishal — a UI/UX &amp; Product Designer turning messy
+            problems into clean, joyful interfaces. 2+ years of shipping work
+            that looks as good as it works.
+          </p>
+          <div class="hero-btns reveal">
+            <a href="#work" class="btn-primary">See my work →</a>
+            <a href="#contact" class="btn-ghost">Let's talk</a>
+          </div>
+        </div>
+        <div class="hero-visual reveal">
+          <div class="orb-wrap">
+            <img
+              class="hero-photo"
+              src="assets/images/profilec:\Users\vishu\OneDrive\Desktop\profile.jpg.jpg"
+              alt="Vishal Prajapati"
+            />
+          </div>
+          <div class="float-chip chip1">🎨 UI Design</div>
+          <div class="float-chip chip2">⚡ Fast Delivery</div>
+          <div class="float-chip chip3">✦ 100% Happy Clients</div>
+        </div>
+      </div>
+    </section>
 
-<section id="hero">
-  <div class="hero-grid">
-    <div>
-      <div class="eyebrow reveal">✦ Available for freelance</div>
-      <h1 class="hero-title">
-        <div class="line"><span>Designing</span></div>
-        <div class="line"><span>products people</span></div>
-        <div class="line"><span class="grad-text">actually love.</span></div>
-      </h1>
-      <p class="hero-sub reveal">Hey, I'm Vishal — a UI/UX &amp; Product Designer turning messy problems into clean, joyful interfaces. 2+ years of shipping work that looks as good as it works.</p>
-      <div class="hero-btns reveal">
-        <a href="#work" class="btn-primary">See my work →</a>
-        <a href="#contact" class="btn-ghost">Let's talk</a>
+    <div class="marquee-wrap">
+      <div class="marquee-track">
+        <span>UI/UX DESIGN</span><span class="o">✦</span><span>FIGMA</span
+        ><span class="o">✦</span><span>PROTOTYPING</span><span class="o">✦</span
+        ><span>DESIGN SYSTEMS</span><span class="o">✦</span>
+        <span>UI/UX DESIGN</span><span class="o">✦</span><span>FIGMA</span
+        ><span class="o">✦</span><span>PROTOTYPING</span><span class="o">✦</span
+        ><span>DESIGN SYSTEMS</span><span class="o">✦</span>
       </div>
     </div>
-    <div class="hero-visual reveal">
-      <div class="orb-wrap">
-        <img class="hero-photo" src="assets/images/profile.jpg" alt="Vishal Prajapati" onerror="this.src='https://images.unsplash.com/photo-1568602471122-7832951cc4c5?auto=format&fit=crop&w=600&q=70'">
+
+    <section id="about">
+      <div class="eyebrow reveal">About Me</div>
+      <h2
+        style="font-size: clamp(28px, 4vw, 44px); max-width: 600px"
+        class="reveal"
+      >
+        A little about how I think &amp; work.
+      </h2>
+
+      <div class="about-grid">
+        <div class="bento b-lead reveal">
+          "Design should solve real problems while creating emotional
+          connections."
+        </div>
+        <div class="bento b-stat reveal">
+          <div class="n">15+</div>
+          <div class="l">Projects Shipped</div>
+        </div>
+        <div class="bento b-stat reveal">
+          <div class="n">12</div>
+          <div class="l">Industry Awards</div>
+        </div>
+        <div class="bento b-photo reveal">🧑‍💻</div>
+        <div class="bento b-stat reveal">
+          <div class="n">100%</div>
+          <div class="l">Client Satisfaction</div>
+        </div>
+        <div class="bento b-stat reveal">
+          <div class="n">02+</div>
+          <div class="l">Years Experience</div>
+        </div>
+        <div class="bento b-tag reveal">@ Coforge</div>
       </div>
-      <div class="float-chip chip1">🎨 UI Design</div>
-      <div class="float-chip chip2">⚡ Fast Delivery</div>
-      <div class="float-chip chip3">✦ 100% Happy Clients</div>
+    </section>
+
+    <section id="skills">
+      <div class="eyebrow reveal">Skills &amp; Tools</div>
+      <h2
+        style="font-size: clamp(28px, 4vw, 44px); max-width: 600px"
+        class="reveal"
+      >
+        Everything I use to bring ideas to life.
+      </h2>
+      <div class="skill-wrap">
+        <div class="skill-pill reveal">
+          <span class="dot"></span>Figma — Expert
+        </div>
+        <div class="skill-pill reveal">
+          <span class="dot"></span>HTML5 &amp; CSS3 — Expert
+        </div>
+        <div class="skill-pill reveal">
+          <span class="dot"></span>Tailwind CSS — Expert
+        </div>
+        <div class="skill-pill reveal">
+          <span class="dot"></span>JavaScript (ES6+) — Advanced
+        </div>
+        <div class="skill-pill reveal">
+          <span class="dot"></span>Canva — Advanced
+        </div>
+        <div class="skill-pill reveal">
+          <span class="dot"></span>User Research — Advanced
+        </div>
+        <div class="skill-pill reveal">
+          <span class="dot"></span>User Flows — Advanced
+        </div>
+        <div class="skill-pill reveal">
+          <span class="dot"></span>Git &amp; GitHub — Advanced
+        </div>
+        <div class="skill-pill reveal">
+          <span class="dot"></span>VS Code — Expert
+        </div>
+        <div class="skill-pill reveal">
+          <span class="dot"></span>Python — Intermediate
+        </div>
+        <div class="skill-pill reveal">
+          <span class="dot"></span>C Language — Intermediate
+        </div>
+        <div class="skill-pill reveal">
+          <span class="dot"></span>Responsive Design — Expert
+        </div>
+      </div>
+    </section>
+
+    <section id="work">
+      <div class="eyebrow reveal">Selected Work</div>
+      <h2
+        style="font-size: clamp(28px, 4vw, 44px); max-width: 600px"
+        class="reveal"
+      >
+        A few things I've recently built.
+      </h2>
+
+      <div class="proj-grid">
+        <div class="proj-card reveal">
+          <div class="proj-arrow">↗</div>
+          <div class="proj-img">
+            <img
+              src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=600&q=70"
+            />
+          </div>
+          <div class="proj-body">
+            <div class="tag">Frontend + UI</div>
+            <h3>PageVista</h3>
+            <p>
+              A responsive eBook platform with elegant design and smooth reading
+              interactions.
+            </p>
+          </div>
+        </div>
+        <div class="proj-card reveal">
+          <div class="proj-arrow">↗</div>
+          <div class="proj-img">
+            <img
+              src="https://images.unsplash.com/photo-1610563166150-b34df4f3bcd6?auto=format&fit=crop&w=600&q=70"
+            />
+          </div>
+          <div class="proj-body">
+            <div class="tag">Computer Vision</div>
+            <h3>Face &amp; Gender Detection</h3>
+            <p>
+              Real-time face detection and gender prediction using OpenCV &amp;
+              Python.
+            </p>
+          </div>
+        </div>
+        <div class="proj-card reveal">
+          <div class="proj-arrow">↗</div>
+          <div class="proj-img">
+            <img
+              src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=70"
+            />
+          </div>
+          <div class="proj-body">
+            <div class="tag">Design + Dev</div>
+            <h3>Personal Portfolio</h3>
+            <p>
+              A modern, minimalist portfolio showcasing my journey and craft.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="contact-card reveal">
+        <div
+          class="eyebrow"
+          style="
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.15);
+            color: #fff;
+          "
+        >
+          ✦ Open for freelance work
+        </div>
+        <h2>
+          Got a project? <br />Let's make it
+          <span class="grad-text">beautiful.</span>
+        </h2>
+        <p>
+          Currently available for freelance work, collaborations, or just a
+          friendly chat about design.
+        </p>
+        <a href="mailto:vishuscripts@gmail.com" class="big-cta"
+          >vishuscripts@gmail.com →</a
+        >
+        <div class="social-strip">
+          <a href="https://linkedin.com/in/vishalprj" target="_blank"
+            >LinkedIn</a
+          >
+          <a href="https://instagram.com/vishu.arijitian" target="_blank"
+            >Instagram</a
+          >
+          <a href="https://x.com/vishuarijitian" target="_blank">X / Twitter</a>
+          <a href="https://vishal2231179.github.io/MyPortfolio" target="_blank"
+            >GitHub</a
+          >
+          <a href="https://lyricslelo.online" target="_blank">Lyrics Site</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <span>© 2026 Vishal Prajapati</span>
+      <span>Made with lots of ✦</span>
+    </footer>
+
+    <!-- Floating action buttons: Chat + Games -->
+    <div class="fab-stack">
+      <div class="game-menu" id="gameMenu">
+        <button class="game-item" data-game="memory-match">
+          <span class="ic">🧠</span>Memory Match
+        </button>
+        <button class="game-item" data-game="sliding-puzzle">
+          <span class="ic">🧩</span>Sliding Puzzle
+        </button>
+        <button class="game-item" data-game="tic-tac-toe">
+          <span class="ic">❌</span>Tic-Tac-Toe
+        </button>
+        <button class="game-item" data-game="trivia-quiz">
+          <span class="ic">❓</span>Trivia Quiz
+        </button>
+        <button class="game-item" data-game="typing-test">
+          <span class="ic">⌨️</span>Typing Test
+        </button>
+      </div>
+      <button
+        class="fab-btn game-bubble"
+        id="gameBubbleBtn"
+        aria-label="Play a game"
+      >
+        🎮
+      </button>
+      <button
+        class="fab-btn chat-bubble-btn"
+        id="chatBubbleBtn"
+        aria-label="Open chat"
+      >
+        💬
+      </button>
     </div>
-  </div>
-</section>
 
-<div class="marquee-wrap">
-  <div class="marquee-track">
-    <span>UI/UX DESIGN</span><span class="o">✦</span><span>FIGMA</span><span class="o">✦</span><span>PROTOTYPING</span><span class="o">✦</span><span>DESIGN SYSTEMS</span><span class="o">✦</span>
-    <span>UI/UX DESIGN</span><span class="o">✦</span><span>FIGMA</span><span class="o">✦</span><span>PROTOTYPING</span><span class="o">✦</span><span>DESIGN SYSTEMS</span><span class="o">✦</span>
-  </div>
-</div>
-
-<section id="about">
-  <div class="eyebrow reveal">About Me</div>
-  <h2 style="font-size:clamp(28px,4vw,44px);max-width:600px;" class="reveal">A little about how I think &amp; work.</h2>
-
-  <div class="about-grid">
-    <div class="bento b-lead reveal">"Design should solve real problems while creating emotional connections."</div>
-    <div class="bento b-stat reveal"><div class="n">15+</div><div class="l">Projects Shipped</div></div>
-    <div class="bento b-stat reveal"><div class="n">12</div><div class="l">Industry Awards</div></div>
-    <div class="bento b-photo reveal">🧑‍💻</div>
-    <div class="bento b-stat reveal"><div class="n">100%</div><div class="l">Client Satisfaction</div></div>
-    <div class="bento b-stat reveal"><div class="n">02+</div><div class="l">Years Experience</div></div>
-    <div class="bento b-tag reveal">@ Coforge</div>
-  </div>
-</section>
-
-<section id="skills">
-  <div class="eyebrow reveal">Skills &amp; Tools</div>
-  <h2 style="font-size:clamp(28px,4vw,44px);max-width:600px;" class="reveal">Everything I use to bring ideas to life.</h2>
-  <div class="skill-wrap">
-    <div class="skill-pill reveal"><span class="dot"></span>Figma — Expert</div>
-    <div class="skill-pill reveal"><span class="dot"></span>HTML5 &amp; CSS3 — Expert</div>
-    <div class="skill-pill reveal"><span class="dot"></span>Tailwind CSS — Expert</div>
-    <div class="skill-pill reveal"><span class="dot"></span>JavaScript (ES6+) — Advanced</div>
-    <div class="skill-pill reveal"><span class="dot"></span>Canva — Advanced</div>
-    <div class="skill-pill reveal"><span class="dot"></span>User Research — Advanced</div>
-    <div class="skill-pill reveal"><span class="dot"></span>User Flows — Advanced</div>
-    <div class="skill-pill reveal"><span class="dot"></span>Git &amp; GitHub — Advanced</div>
-    <div class="skill-pill reveal"><span class="dot"></span>VS Code — Expert</div>
-    <div class="skill-pill reveal"><span class="dot"></span>Python — Intermediate</div>
-    <div class="skill-pill reveal"><span class="dot"></span>C Language — Intermediate</div>
-    <div class="skill-pill reveal"><span class="dot"></span>Responsive Design — Expert</div>
-  </div>
-</section>
-
-<section id="work">
-  <div class="eyebrow reveal">Selected Work</div>
-  <h2 style="font-size:clamp(28px,4vw,44px);max-width:600px;" class="reveal">A few things I've recently built.</h2>
-
-  <div class="proj-grid">
-    <div class="proj-card reveal">
-      <div class="proj-arrow">↗</div>
-      <div class="proj-img"><img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=600&q=70"></div>
-      <div class="proj-body"><div class="tag">Frontend + UI</div><h3>PageVista</h3><p>A responsive eBook platform with elegant design and smooth reading interactions.</p></div>
+    <!-- Game modal -->
+    <div class="game-modal-overlay" id="gameModalOverlay">
+      <div class="game-modal-box">
+        <button class="game-modal-close" id="gameModalClose">✕</button>
+        <iframe id="gameFrame" title="Mini game"></iframe>
+      </div>
     </div>
-    <div class="proj-card reveal">
-      <div class="proj-arrow">↗</div>
-      <div class="proj-img"><img src="https://images.unsplash.com/photo-1610563166150-b34df4f3bcd6?auto=format&fit=crop&w=600&q=70"></div>
-      <div class="proj-body"><div class="tag">Computer Vision</div><h3>Face &amp; Gender Detection</h3><p>Real-time face detection and gender prediction using OpenCV &amp; Python.</p></div>
+
+    <!-- Chat overlay + panel -->
+    <div class="chat-overlay" id="chatOverlay"></div>
+    <div class="chat-panel-container" id="chatPanelContainer">
+      <div class="chat-header">
+        <span>Chat with Vishal</span>
+        <button class="chat-close" id="chatCloseBtn" aria-label="Close chat">
+          ✕
+        </button>
+      </div>
+      <iframe
+        src="https://www.chatbase.co/chatbot-iframe/pcdciyHGXizsDa3WUfK3E"
+        allow="microphone"
+        title="Chatbot interface"
+      ></iframe>
     </div>
-    <div class="proj-card reveal">
-      <div class="proj-arrow">↗</div>
-      <div class="proj-img"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=70"></div>
-      <div class="proj-body"><div class="tag">Design + Dev</div><h3>Personal Portfolio</h3><p>A modern, minimalist portfolio showcasing my journey and craft.</p></div>
-    </div>
-  </div>
-</section>
 
-<section id="contact">
-  <div class="contact-card reveal">
-    <div class="eyebrow" style="background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.15);color:#fff;">✦ Open for freelance work</div>
-    <h2>Got a project? <br>Let's make it <span class="grad-text">beautiful.</span></h2>
-    <p>Currently available for freelance work, collaborations, or just a friendly chat about design.</p>
-    <a href="mailto:vishuscripts@gmail.com" class="big-cta">vishuscripts@gmail.com →</a>
-    <div class="social-strip">
-      <a href="https://linkedin.com/in/vishalprj" target="_blank">LinkedIn</a>
-      <a href="https://instagram.com/vishu.arijitian" target="_blank">Instagram</a>
-      <a href="https://x.com/vishuarijitian" target="_blank">X / Twitter</a>
-      <a href="https://vishal2231179.github.io/MyPortfolio" target="_blank">GitHub</a>
-      <a href="https://lyricslelo.online" target="_blank">Lyrics Site</a>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <span>© 2026 Vishal Prajapati</span>
-  <span>Made with lots of ✦</span>
-</footer>
-
-<!-- Floating action buttons: Chat + Games -->
-<div class="fab-stack">
-  <div class="game-menu" id="gameMenu">
-    <button class="game-item" data-game="memory-match"><span class="ic">🧠</span>Memory Match</button>
-    <button class="game-item" data-game="sliding-puzzle"><span class="ic">🧩</span>Sliding Puzzle</button>
-    <button class="game-item" data-game="tic-tac-toe"><span class="ic">❌</span>Tic-Tac-Toe</button>
-    <button class="game-item" data-game="trivia-quiz"><span class="ic">❓</span>Trivia Quiz</button>
-    <button class="game-item" data-game="typing-test"><span class="ic">⌨️</span>Typing Test</button>
-  </div>
-  <button class="fab-btn game-bubble" id="gameBubbleBtn" aria-label="Play a game">🎮</button>
-  <button class="fab-btn chat-bubble-btn" id="chatBubbleBtn" aria-label="Open chat">💬</button>
-</div>
-
-<!-- Game modal -->
-<div class="game-modal-overlay" id="gameModalOverlay">
-  <div class="game-modal-box">
-    <button class="game-modal-close" id="gameModalClose">✕</button>
-    <iframe id="gameFrame" title="Mini game"></iframe>
-  </div>
-</div>
-
-<!-- Chat overlay + panel -->
-<div class="chat-overlay" id="chatOverlay"></div>
-<div class="chat-panel-container" id="chatPanelContainer">
-  <div class="chat-header">
-    <span>Chat with Vishal</span>
-    <button class="chat-close" id="chatCloseBtn" aria-label="Close chat">✕</button>
-  </div>
-  <iframe src="https://www.chatbase.co/chatbot-iframe/pcdciyHGXizsDa3WUfK3E" allow="microphone" title="Chatbot interface"></iframe>
-</div>
-
-<!-- scripts -->
-<script src="scripts/main.js"></script>
-<script src="scripts/hamburger.js"></script>
-<script src="scripts/bubble.js"></script>
-<script src="scripts/chatbot.js"></script>
-</body>
+    <!-- scripts -->
+    <script src="scripts/main.js"></script>
+    <script src="scripts/hamburger.js"></script>
+    <script src="scripts/bubble.js"></script>
+    <script src="scripts/chatbot.js"></script>
+  </body>
 </html>
