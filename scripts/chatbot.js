@@ -1,32 +1,23 @@
-// DOM elements
-const chatBubble = document.getElementById("chatBubble");
-const chatPanelContainer = document.getElementById("chatPanelContainer");
-const chatOverlay = document.getElementById("chatOverlay");
-const closeBtn = document.getElementById("closeBtn");
+/* chat bubble */
+const chatBubbleBtn = document.getElementById('chatBubbleBtn');
+const chatOverlay = document.getElementById('chatOverlay');
+const chatPanelContainer = document.getElementById('chatPanelContainer');
+const chatCloseBtn = document.getElementById('chatCloseBtn');
 
-// Toggle chat function
-function toggleChat() {
-  const isActive = chatPanelContainer.classList.contains("active");
-
-  // Toggle classes
-  chatPanelContainer.classList.toggle("active");
-  chatOverlay.classList.toggle("active");
-
-  // Toggle body scroll
-  document.body.style.overflow = isActive ? "" : "hidden";
+function openChat() {
+  chatOverlay.classList.add('open');
+  chatPanelContainer.classList.add('open');
 }
 
-// Event listeners
-chatBubble.addEventListener("click", toggleChat);
-closeBtn.addEventListener("click", function (e) {
-  e.stopPropagation(); // Critical fix
-  toggleChat();
-});
-chatOverlay.addEventListener("click", toggleChat);
+function closeChat() {
+  chatOverlay.classList.remove('open');
+  chatPanelContainer.classList.remove('open');
+}
 
-// Close on Escape key
-document.addEventListener("keydown", function (e) {
-  if (e.key === "Escape" && chatPanelContainer.classList.contains("active")) {
-    toggleChat();
-  }
+chatBubbleBtn.addEventListener('click', openChat);
+chatCloseBtn.addEventListener('click', closeChat);
+chatOverlay.addEventListener('click', closeChat);
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeChat();
 });
