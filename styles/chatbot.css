@@ -1,8 +1,0 @@
-/* chat panel */
-.chat-overlay{position:fixed;inset:0;background:rgba(20,18,25,.4);backdrop-filter:blur(4px);z-index:400;display:none;}
-.chat-overlay.open{display:block;}
-.chat-panel-container{position:fixed;bottom:100px;right:28px;width:min(380px,92vw);height:min(560px,72vh);background:#fff;border-radius:26px;box-shadow:0 40px 90px rgba(0,0,0,.3);z-index:401;overflow:hidden;transform:translateY(20px) scale(.96);opacity:0;pointer-events:none;transition:.35s cubic-bezier(.2,.8,.2,1);}
-.chat-panel-container.open{transform:translateY(0) scale(1);opacity:1;pointer-events:auto;}
-.chat-header{background:var(--ink);color:#fff;padding:16px 20px;font-weight:700;font-family:'Space Grotesk';display:flex;justify-content:space-between;align-items:center;}
-.chat-close{background:none;border:none;color:#fff;font-size:18px;cursor:pointer;}
-.chat-panel-container iframe{width:100%;height:calc(100% - 54px);border:none;}
